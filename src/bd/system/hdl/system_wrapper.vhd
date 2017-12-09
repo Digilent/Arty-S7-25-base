@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2017.2.1 (win64) Build 1957588 Wed Aug  9 16:32:24 MDT 2017
---Date        : Thu Aug 24 17:43:23 2017
+--Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
+--Date        : Sat Dec  9 11:58:14 2017
 --Host        : DESKTOP-9HMNAI5 running 64-bit major release  (build 9200)
 --Command     : generate_target system_wrapper.bd
 --Design      : system_wrapper
@@ -14,22 +14,6 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_wrapper is
   port (
     CLK100MHZ : in STD_LOGIC;
-    Vaux0_v_n : in STD_LOGIC;
-    Vaux0_v_p : in STD_LOGIC;
-    Vaux10_v_n : in STD_LOGIC;
-    Vaux10_v_p : in STD_LOGIC;
-    Vaux11_v_n : in STD_LOGIC;
-    Vaux11_v_p : in STD_LOGIC;
-    Vaux1_v_n : in STD_LOGIC;
-    Vaux1_v_p : in STD_LOGIC;
-    Vaux2_v_n : in STD_LOGIC;
-    Vaux2_v_p : in STD_LOGIC;
-    Vaux3_v_n : in STD_LOGIC;
-    Vaux3_v_p : in STD_LOGIC;
-    Vaux8_v_n : in STD_LOGIC;
-    Vaux8_v_p : in STD_LOGIC;
-    Vaux9_v_n : in STD_LOGIC;
-    Vaux9_v_p : in STD_LOGIC;
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
     ddr3_sdram_addr : out STD_LOGIC_VECTOR ( 13 downto 0 );
@@ -66,22 +50,6 @@ end system_wrapper;
 architecture STRUCTURE of system_wrapper is
   component system is
   port (
-    Vaux0_v_n : in STD_LOGIC;
-    Vaux0_v_p : in STD_LOGIC;
-    Vaux1_v_n : in STD_LOGIC;
-    Vaux1_v_p : in STD_LOGIC;
-    Vaux2_v_n : in STD_LOGIC;
-    Vaux2_v_p : in STD_LOGIC;
-    Vaux3_v_n : in STD_LOGIC;
-    Vaux3_v_p : in STD_LOGIC;
-    Vaux8_v_n : in STD_LOGIC;
-    Vaux8_v_p : in STD_LOGIC;
-    Vaux9_v_n : in STD_LOGIC;
-    Vaux9_v_p : in STD_LOGIC;
-    Vaux10_v_n : in STD_LOGIC;
-    Vaux10_v_p : in STD_LOGIC;
-    Vaux11_v_n : in STD_LOGIC;
-    Vaux11_v_p : in STD_LOGIC;
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
     ddr3_sdram_dq : inout STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -233,22 +201,6 @@ qspi_flash_ss_iobuf: component IOBUF
 system_i: component system
      port map (
       CLK100MHZ => CLK100MHZ,
-      Vaux0_v_n => Vaux0_v_n,
-      Vaux0_v_p => Vaux0_v_p,
-      Vaux10_v_n => Vaux10_v_n,
-      Vaux10_v_p => Vaux10_v_p,
-      Vaux11_v_n => Vaux11_v_n,
-      Vaux11_v_p => Vaux11_v_p,
-      Vaux1_v_n => Vaux1_v_n,
-      Vaux1_v_p => Vaux1_v_p,
-      Vaux2_v_n => Vaux2_v_n,
-      Vaux2_v_p => Vaux2_v_p,
-      Vaux3_v_n => Vaux3_v_n,
-      Vaux3_v_p => Vaux3_v_p,
-      Vaux8_v_n => Vaux8_v_n,
-      Vaux8_v_p => Vaux8_v_p,
-      Vaux9_v_n => Vaux9_v_n,
-      Vaux9_v_p => Vaux9_v_p,
       Vp_Vn_v_n => Vp_Vn_v_n,
       Vp_Vn_v_p => Vp_Vn_v_p,
       ddr3_sdram_addr(13 downto 0) => ddr3_sdram_addr(13 downto 0),

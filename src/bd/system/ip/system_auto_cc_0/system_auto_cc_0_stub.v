@@ -1,19 +1,19 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2.1 (win64) Build 1957588 Wed Aug  9 16:32:24 MDT 2017
-// Date        : Thu Aug 24 17:45:32 2017
+// Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
+// Date        : Fri Dec  8 20:06:33 2017
 // Host        : DESKTOP-9HMNAI5 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/sam_work/git/digilent/Arty-S7-50-base/src/bd/system/ip/system_auto_cc_0/system_auto_cc_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top system_auto_cc_0 -prefix
+//               system_auto_cc_0_ system_auto_cc_0_stub.v
 // Design      : system_auto_cc_0
 // Purpose     : Stub declaration of top-level module interface
-// Device      : xc7s50csga324-1
+// Device      : xc7s25csga324-1
 // --------------------------------------------------------------------------------
 
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
-(* X_CORE_INFO = "axi_clock_converter_v2_1_12_axi_clock_converter,Vivado 2017.2.1" *)
+(* X_CORE_INFO = "axi_clock_converter_v2_1_13_axi_clock_converter,Vivado 2017.3" *)
 module system_auto_cc_0(s_axi_aclk, s_axi_aresetn, s_axi_awaddr, 
   s_axi_awprot, s_axi_awvalid, s_axi_awready, s_axi_wdata, s_axi_wstrb, s_axi_wvalid, 
   s_axi_wready, s_axi_bresp, s_axi_bvalid, s_axi_bready, s_axi_araddr, s_axi_arprot, 

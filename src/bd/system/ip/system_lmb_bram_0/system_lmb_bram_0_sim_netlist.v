@@ -1,18 +1,18 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-// Date        : Mon Jul 24 14:34:19 2017
-// Host        : WK73 running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim -rename_top system_lmb_bram_0 -prefix
-//               system_lmb_bram_0_ system_lmb_bram_0_sim_netlist.v
+// Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
+// Date        : Fri Dec  8 20:09:03 2017
+// Host        : DESKTOP-9HMNAI5 running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               C:/sam_work/git/digilent/Arty-S7-25-base/src/bd/system/ip/system_lmb_bram_0/system_lmb_bram_0_sim_netlist.v
 // Design      : system_lmb_bram_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
-// Device      : xc7s50csga324-1
+// Device      : xc7s25csga324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_lmb_bram_0,blk_mem_gen_v8_3_6,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_3_6,Vivado 2017.2" *) 
+(* CHECK_LICENSE_TYPE = "system_lmb_bram_0,blk_mem_gen_v8_4_0,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_0,Vivado 2017.3" *) 
 (* NotValidForBitStream *)
 module system_lmb_bram_0
    (clka,
@@ -29,14 +29,14 @@ module system_lmb_bram_0
     addrb,
     dinb,
     doutb);
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) input clka;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 65536, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE" *) input clka;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA RST" *) input rsta;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA EN" *) input ena;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *) input [3:0]wea;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *) input [31:0]addra;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN" *) input [31:0]dina;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *) output [31:0]douta;
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *) input clkb;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 65536, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE" *) input clkb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB RST" *) input rstb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB EN" *) input enb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB WE" *) input [3:0]web;
@@ -152,7 +152,7 @@ module system_lmb_bram_0
   (* C_WRITE_WIDTH_B = "32" *) 
   (* C_XDEVICEFAMILY = "spartan7" *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
-  system_lmb_bram_0_blk_mem_gen_v8_3_6 U0
+  system_lmb_bram_0_blk_mem_gen_v8_4_0 U0
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -218,6 +218,7 @@ module system_lmb_bram_0
         .web(web));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module system_lmb_bram_0_blk_mem_gen_generic_cstr
    (douta,
     doutb,
@@ -505,6 +506,7 @@ module system_lmb_bram_0_blk_mem_gen_generic_cstr
         .web(web[2]));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module system_lmb_bram_0_blk_mem_gen_prim_width
    (douta,
     doutb,
@@ -1512,6 +1514,7 @@ module system_lmb_bram_0_blk_mem_gen_prim_width__parameterized9
         .web(web));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
 module system_lmb_bram_0_blk_mem_gen_prim_wrapper
    (douta,
     doutb,
@@ -5815,6 +5818,7 @@ module system_lmb_bram_0_blk_mem_gen_prim_wrapper__parameterized9
         .WEBWE({1'b0,1'b0,1'b0,1'b0,web,web,web,web}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module system_lmb_bram_0_blk_mem_gen_top
    (douta,
     doutb,
@@ -5901,8 +5905,8 @@ endmodule
 (* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "4" *) (* C_WEB_WIDTH = "4" *) 
 (* C_WRITE_DEPTH_A = "16384" *) (* C_WRITE_DEPTH_B = "16384" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
 (* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "32" *) 
-(* C_XDEVICEFAMILY = "spartan7" *) (* downgradeipidentifiedwarnings = "yes" *) 
-module system_lmb_bram_0_blk_mem_gen_v8_3_6
+(* C_XDEVICEFAMILY = "spartan7" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_0" *) (* downgradeipidentifiedwarnings = "yes" *) 
+module system_lmb_bram_0_blk_mem_gen_v8_4_0
    (clka,
     rsta,
     ena,
@@ -6168,7 +6172,7 @@ module system_lmb_bram_0_blk_mem_gen_v8_3_6
   assign sbiterr = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  system_lmb_bram_0_blk_mem_gen_v8_3_6_synth inst_blk_mem_gen
+  system_lmb_bram_0_blk_mem_gen_v8_4_0_synth inst_blk_mem_gen
        (.addra(addra[15:2]),
         .addrb(addrb[15:2]),
         .clka(clka),
@@ -6185,7 +6189,8 @@ module system_lmb_bram_0_blk_mem_gen_v8_3_6
         .web(web));
 endmodule
 
-module system_lmb_bram_0_blk_mem_gen_v8_3_6_synth
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_0_synth" *) 
+module system_lmb_bram_0_blk_mem_gen_v8_4_0_synth
    (douta,
     doutb,
     clka,

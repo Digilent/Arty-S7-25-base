@@ -1,14 +1,14 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
--- Date        : Mon Jul 24 14:33:22 2017
--- Host        : WK73 running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode funcsim -rename_top system_PWM_0_0 -prefix
---               system_PWM_0_0_ system_PWM_0_0_sim_netlist.vhdl
+-- Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
+-- Date        : Fri Dec  8 20:07:51 2017
+-- Host        : DESKTOP-9HMNAI5 running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim
+--               C:/sam_work/git/digilent/Arty-S7-25-base/src/bd/system/ip/system_PWM_0_0/system_PWM_0_0_sim_netlist.vhdl
 -- Design      : system_PWM_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
--- Device      : xc7s50csga324-1
+-- Device      : xc7s25csga324-1
 -- --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -42,6 +42,8 @@ entity system_PWM_0_0_PWM_AXI is
     pwm_axi_wvalid : in STD_LOGIC;
     pwm_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_PWM_0_0_PWM_AXI : entity is "PWM_AXI";
 end system_PWM_0_0_PWM_AXI;
 
 architecture STRUCTURE of system_PWM_0_0_PWM_AXI is
@@ -5400,6 +5402,8 @@ entity system_PWM_0_0_PWM_v2_0 is
     pwm_axi_bready : in STD_LOGIC;
     pwm_axi_rready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_PWM_0_0_PWM_v2_0 : entity is "PWM_v2_0";
 end system_PWM_0_0_PWM_v2_0;
 
 architecture STRUCTURE of system_PWM_0_0_PWM_v2_0 is
@@ -5471,37 +5475,6 @@ architecture STRUCTURE of system_PWM_0_0_PWM_v2_0 is
   signal count1_carry_n_2 : STD_LOGIC;
   signal count1_carry_n_3 : STD_LOGIC;
   signal \count[0]_i_2_n_0\ : STD_LOGIC;
-  signal \count[0]_i_3_n_0\ : STD_LOGIC;
-  signal \count[0]_i_4_n_0\ : STD_LOGIC;
-  signal \count[0]_i_5_n_0\ : STD_LOGIC;
-  signal \count[12]_i_2_n_0\ : STD_LOGIC;
-  signal \count[12]_i_3_n_0\ : STD_LOGIC;
-  signal \count[12]_i_4_n_0\ : STD_LOGIC;
-  signal \count[12]_i_5_n_0\ : STD_LOGIC;
-  signal \count[16]_i_2_n_0\ : STD_LOGIC;
-  signal \count[16]_i_3_n_0\ : STD_LOGIC;
-  signal \count[16]_i_4_n_0\ : STD_LOGIC;
-  signal \count[16]_i_5_n_0\ : STD_LOGIC;
-  signal \count[20]_i_2_n_0\ : STD_LOGIC;
-  signal \count[20]_i_3_n_0\ : STD_LOGIC;
-  signal \count[20]_i_4_n_0\ : STD_LOGIC;
-  signal \count[20]_i_5_n_0\ : STD_LOGIC;
-  signal \count[24]_i_2_n_0\ : STD_LOGIC;
-  signal \count[24]_i_3_n_0\ : STD_LOGIC;
-  signal \count[24]_i_4_n_0\ : STD_LOGIC;
-  signal \count[24]_i_5_n_0\ : STD_LOGIC;
-  signal \count[28]_i_2_n_0\ : STD_LOGIC;
-  signal \count[28]_i_3_n_0\ : STD_LOGIC;
-  signal \count[28]_i_4_n_0\ : STD_LOGIC;
-  signal \count[28]_i_5_n_0\ : STD_LOGIC;
-  signal \count[4]_i_2_n_0\ : STD_LOGIC;
-  signal \count[4]_i_3_n_0\ : STD_LOGIC;
-  signal \count[4]_i_4_n_0\ : STD_LOGIC;
-  signal \count[4]_i_5_n_0\ : STD_LOGIC;
-  signal \count[8]_i_2_n_0\ : STD_LOGIC;
-  signal \count[8]_i_3_n_0\ : STD_LOGIC;
-  signal \count[8]_i_4_n_0\ : STD_LOGIC;
-  signal \count[8]_i_5_n_0\ : STD_LOGIC;
   signal count_reg : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \count_reg[0]_i_1_n_0\ : STD_LOGIC;
   signal \count_reg[0]_i_1_n_1\ : STD_LOGIC;
@@ -6513,259 +6486,11 @@ count1_carry_i_8: unisim.vcomponents.LUT4
     );
 \count[0]_i_2\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(3),
-      O => \count[0]_i_2_n_0\
-    );
-\count[0]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(2),
-      O => \count[0]_i_3_n_0\
-    );
-\count[0]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(1),
-      O => \count[0]_i_4_n_0\
-    );
-\count[0]_i_5\: unisim.vcomponents.LUT1
-    generic map(
       INIT => X"1"
     )
         port map (
       I0 => count_reg(0),
-      O => \count[0]_i_5_n_0\
-    );
-\count[12]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(15),
-      O => \count[12]_i_2_n_0\
-    );
-\count[12]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(14),
-      O => \count[12]_i_3_n_0\
-    );
-\count[12]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(13),
-      O => \count[12]_i_4_n_0\
-    );
-\count[12]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(12),
-      O => \count[12]_i_5_n_0\
-    );
-\count[16]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(19),
-      O => \count[16]_i_2_n_0\
-    );
-\count[16]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(18),
-      O => \count[16]_i_3_n_0\
-    );
-\count[16]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(17),
-      O => \count[16]_i_4_n_0\
-    );
-\count[16]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(16),
-      O => \count[16]_i_5_n_0\
-    );
-\count[20]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(23),
-      O => \count[20]_i_2_n_0\
-    );
-\count[20]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(22),
-      O => \count[20]_i_3_n_0\
-    );
-\count[20]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(21),
-      O => \count[20]_i_4_n_0\
-    );
-\count[20]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(20),
-      O => \count[20]_i_5_n_0\
-    );
-\count[24]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(27),
-      O => \count[24]_i_2_n_0\
-    );
-\count[24]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(26),
-      O => \count[24]_i_3_n_0\
-    );
-\count[24]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(25),
-      O => \count[24]_i_4_n_0\
-    );
-\count[24]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(24),
-      O => \count[24]_i_5_n_0\
-    );
-\count[28]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(31),
-      O => \count[28]_i_2_n_0\
-    );
-\count[28]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(30),
-      O => \count[28]_i_3_n_0\
-    );
-\count[28]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(29),
-      O => \count[28]_i_4_n_0\
-    );
-\count[28]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(28),
-      O => \count[28]_i_5_n_0\
-    );
-\count[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(7),
-      O => \count[4]_i_2_n_0\
-    );
-\count[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(6),
-      O => \count[4]_i_3_n_0\
-    );
-\count[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(5),
-      O => \count[4]_i_4_n_0\
-    );
-\count[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(4),
-      O => \count[4]_i_5_n_0\
-    );
-\count[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(11),
-      O => \count[8]_i_2_n_0\
-    );
-\count[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(10),
-      O => \count[8]_i_3_n_0\
-    );
-\count[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(9),
-      O => \count[8]_i_4_n_0\
-    );
-\count[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => count_reg(8),
-      O => \count[8]_i_5_n_0\
+      O => \count[0]_i_2_n_0\
     );
 \count_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -6791,10 +6516,8 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[0]_i_1_n_5\,
       O(1) => \count_reg[0]_i_1_n_6\,
       O(0) => \count_reg[0]_i_1_n_7\,
-      S(3) => \count[0]_i_2_n_0\,
-      S(2) => \count[0]_i_3_n_0\,
-      S(1) => \count[0]_i_4_n_0\,
-      S(0) => \count[0]_i_5_n_0\
+      S(3 downto 1) => count_reg(3 downto 1),
+      S(0) => \count[0]_i_2_n_0\
     );
 \count_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -6842,10 +6565,7 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[12]_i_1_n_5\,
       O(1) => \count_reg[12]_i_1_n_6\,
       O(0) => \count_reg[12]_i_1_n_7\,
-      S(3) => \count[12]_i_2_n_0\,
-      S(2) => \count[12]_i_3_n_0\,
-      S(1) => \count[12]_i_4_n_0\,
-      S(0) => \count[12]_i_5_n_0\
+      S(3 downto 0) => count_reg(15 downto 12)
     );
 \count_reg[13]\: unisim.vcomponents.FDRE
     generic map(
@@ -6904,10 +6624,7 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[16]_i_1_n_5\,
       O(1) => \count_reg[16]_i_1_n_6\,
       O(0) => \count_reg[16]_i_1_n_7\,
-      S(3) => \count[16]_i_2_n_0\,
-      S(2) => \count[16]_i_3_n_0\,
-      S(1) => \count[16]_i_4_n_0\,
-      S(0) => \count[16]_i_5_n_0\
+      S(3 downto 0) => count_reg(19 downto 16)
     );
 \count_reg[17]\: unisim.vcomponents.FDRE
     generic map(
@@ -6977,10 +6694,7 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[20]_i_1_n_5\,
       O(1) => \count_reg[20]_i_1_n_6\,
       O(0) => \count_reg[20]_i_1_n_7\,
-      S(3) => \count[20]_i_2_n_0\,
-      S(2) => \count[20]_i_3_n_0\,
-      S(1) => \count[20]_i_4_n_0\,
-      S(0) => \count[20]_i_5_n_0\
+      S(3 downto 0) => count_reg(23 downto 20)
     );
 \count_reg[21]\: unisim.vcomponents.FDRE
     generic map(
@@ -7039,10 +6753,7 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[24]_i_1_n_5\,
       O(1) => \count_reg[24]_i_1_n_6\,
       O(0) => \count_reg[24]_i_1_n_7\,
-      S(3) => \count[24]_i_2_n_0\,
-      S(2) => \count[24]_i_3_n_0\,
-      S(1) => \count[24]_i_4_n_0\,
-      S(0) => \count[24]_i_5_n_0\
+      S(3 downto 0) => count_reg(27 downto 24)
     );
 \count_reg[25]\: unisim.vcomponents.FDRE
     generic map(
@@ -7101,10 +6812,7 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[28]_i_1_n_5\,
       O(1) => \count_reg[28]_i_1_n_6\,
       O(0) => \count_reg[28]_i_1_n_7\,
-      S(3) => \count[28]_i_2_n_0\,
-      S(2) => \count[28]_i_3_n_0\,
-      S(1) => \count[28]_i_4_n_0\,
-      S(0) => \count[28]_i_5_n_0\
+      S(3 downto 0) => count_reg(31 downto 28)
     );
 \count_reg[29]\: unisim.vcomponents.FDRE
     generic map(
@@ -7185,10 +6893,7 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[4]_i_1_n_5\,
       O(1) => \count_reg[4]_i_1_n_6\,
       O(0) => \count_reg[4]_i_1_n_7\,
-      S(3) => \count[4]_i_2_n_0\,
-      S(2) => \count[4]_i_3_n_0\,
-      S(1) => \count[4]_i_4_n_0\,
-      S(0) => \count[4]_i_5_n_0\
+      S(3 downto 0) => count_reg(7 downto 4)
     );
 \count_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -7247,10 +6952,7 @@ count1_carry_i_8: unisim.vcomponents.LUT4
       O(2) => \count_reg[8]_i_1_n_5\,
       O(1) => \count_reg[8]_i_1_n_6\,
       O(0) => \count_reg[8]_i_1_n_7\,
-      S(3) => \count[8]_i_2_n_0\,
-      S(2) => \count[8]_i_3_n_0\,
-      S(1) => \count[8]_i_4_n_0\,
-      S(0) => \count[8]_i_5_n_0\
+      S(3 downto 0) => count_reg(11 downto 8)
     );
 \count_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -12167,11 +11869,37 @@ entity system_PWM_0_0 is
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of system_PWM_0_0 : entity is "yes";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of system_PWM_0_0 : entity is "PWM_v2_0,Vivado 2017.2";
+  attribute X_CORE_INFO of system_PWM_0_0 : entity is "PWM_v2_0,Vivado 2017.3";
 end system_PWM_0_0;
 
 architecture STRUCTURE of system_PWM_0_0 is
   signal \<const0>\ : STD_LOGIC;
+  attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of pwm_axi_aclk : signal is "xilinx.com:signal:clock:1.0 PWM_AXI_CLK CLK";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of pwm_axi_aclk : signal is "XIL_INTERFACENAME PWM_AXI_CLK, ASSOCIATED_BUSIF PWM_AXI, ASSOCIATED_RESET pwm_axi_aresetn, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1";
+  attribute X_INTERFACE_INFO of pwm_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 PWM_AXI_RST RST";
+  attribute X_INTERFACE_PARAMETER of pwm_axi_aresetn : signal is "XIL_INTERFACENAME PWM_AXI_RST, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of pwm_axi_arready : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI ARREADY";
+  attribute X_INTERFACE_INFO of pwm_axi_arvalid : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI ARVALID";
+  attribute X_INTERFACE_INFO of pwm_axi_awready : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI AWREADY";
+  attribute X_INTERFACE_INFO of pwm_axi_awvalid : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI AWVALID";
+  attribute X_INTERFACE_INFO of pwm_axi_bready : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI BREADY";
+  attribute X_INTERFACE_INFO of pwm_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI BVALID";
+  attribute X_INTERFACE_INFO of pwm_axi_rready : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI RREADY";
+  attribute X_INTERFACE_PARAMETER of pwm_axi_rready : signal is "XIL_INTERFACENAME PWM_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute X_INTERFACE_INFO of pwm_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI RVALID";
+  attribute X_INTERFACE_INFO of pwm_axi_wready : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI WREADY";
+  attribute X_INTERFACE_INFO of pwm_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI WVALID";
+  attribute X_INTERFACE_INFO of pwm_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI ARADDR";
+  attribute X_INTERFACE_INFO of pwm_axi_arprot : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI ARPROT";
+  attribute X_INTERFACE_INFO of pwm_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI AWADDR";
+  attribute X_INTERFACE_INFO of pwm_axi_awprot : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI AWPROT";
+  attribute X_INTERFACE_INFO of pwm_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI BRESP";
+  attribute X_INTERFACE_INFO of pwm_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI RDATA";
+  attribute X_INTERFACE_INFO of pwm_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI RRESP";
+  attribute X_INTERFACE_INFO of pwm_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI WDATA";
+  attribute X_INTERFACE_INFO of pwm_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 PWM_AXI WSTRB";
 begin
   pwm_axi_bresp(1) <= \<const0>\;
   pwm_axi_bresp(0) <= \<const0>\;

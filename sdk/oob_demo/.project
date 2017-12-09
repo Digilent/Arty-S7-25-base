@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>oob_demo</name>
-	<comment>Created by SDK v2017.2. oob_demo_bsp - microblaze_0</comment>
+	<comment>Created by SDK v2017.3. oob_demo_bsp - microblaze_0</comment>
 	<projects>
 		<project>oob_demo_bsp</project>
 	</projects>

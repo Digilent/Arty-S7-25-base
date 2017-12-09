@@ -47,14 +47,14 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:mdm:3.2
--- IP Revision: 10
+-- IP Revision: 11
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-LIBRARY mdm_v3_2_10;
-USE mdm_v3_2_10.MDM;
+LIBRARY mdm_v3_2_11;
+USE mdm_v3_2_11.MDM;
 
 ENTITY system_mdm_1_0 IS
   PORT (
@@ -79,6 +79,7 @@ ARCHITECTURE system_mdm_1_0_arch OF system_mdm_1_0 IS
       C_FAMILY : STRING;
       C_JTAG_CHAIN : INTEGER;
       C_USE_BSCAN : INTEGER;
+      C_BSCANID : INTEGER;
       C_DEBUG_INTERFACE : INTEGER;
       C_USE_CONFIG_RESET : INTEGER;
       C_AVOID_PRIMITIVES : INTEGER;
@@ -1611,6 +1612,8 @@ ARCHITECTURE system_mdm_1_0_arch OF system_mdm_1_0 IS
       bscan_ext_sel : IN STD_LOGIC;
       bscan_ext_drck : IN STD_LOGIC;
       bscan_ext_tdo : OUT STD_LOGIC;
+      bscan_ext_tck : IN STD_LOGIC;
+      bscan_ext_bscanid_en : IN STD_LOGIC;
       Ext_JTAG_DRCK : OUT STD_LOGIC;
       Ext_JTAG_RESET : OUT STD_LOGIC;
       Ext_JTAG_SEL : OUT STD_LOGIC;
@@ -1622,22 +1625,25 @@ ARCHITECTURE system_mdm_1_0_arch OF system_mdm_1_0 IS
     );
   END COMPONENT MDM;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF Debug_SYS_Rst: SIGNAL IS "xilinx.com:signal:reset:1.0 RST.Debug_SYS_Rst RST";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Clk_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 CLK";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_TDI_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDI";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_TDO_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDO";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Reg_En_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 REG_EN";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Capture_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 CAPTURE";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Shift_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 SHIFT";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Update_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 UPDATE";
-  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Rst_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF Dbg_Disable_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 DISABLE";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Rst_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 RST";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Update_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 UPDATE";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Shift_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 SHIFT";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Capture_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 CAPTURE";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Reg_En_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 REG_EN";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_TDO_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDO";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_TDI_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDI";
+  ATTRIBUTE X_INTERFACE_INFO OF Dbg_Clk_0: SIGNAL IS "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF Debug_SYS_Rst: SIGNAL IS "XIL_INTERFACENAME RST.Debug_SYS_Rst, POLARITY ACTIVE_HIGH";
+  ATTRIBUTE X_INTERFACE_INFO OF Debug_SYS_Rst: SIGNAL IS "xilinx.com:signal:reset:1.0 RST.Debug_SYS_Rst RST";
 BEGIN
   U0 : MDM
     GENERIC MAP (
       C_FAMILY => "spartan7",
       C_JTAG_CHAIN => 2,
       C_USE_BSCAN => 0,
+      C_BSCANID => 76547328,
       C_DEBUG_INTERFACE => 0,
       C_USE_CONFIG_RESET => 0,
       C_AVOID_PRIMITIVES => 0,
@@ -2294,6 +2300,8 @@ BEGIN
       bscan_ext_capture => '0',
       bscan_ext_sel => '0',
       bscan_ext_drck => '0',
+      bscan_ext_tck => '0',
+      bscan_ext_bscanid_en => '0',
       Ext_JTAG_TDO => '0'
     );
 END system_mdm_1_0_arch;

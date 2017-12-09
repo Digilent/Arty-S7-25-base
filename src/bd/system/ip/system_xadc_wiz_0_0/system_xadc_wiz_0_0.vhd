@@ -83,22 +83,6 @@ entity system_xadc_wiz_0_0 is
                                                                                 
    -- Input to the system from the axi_xadc core
     ip2intc_irpt    : out std_logic;
-    vauxp0          : in  STD_LOGIC;                         -- Auxiliary Channel 0
-    vauxn0          : in  STD_LOGIC;
-    vauxp1          : in  STD_LOGIC;                         -- Auxiliary Channel 1
-    vauxn1          : in  STD_LOGIC;
-    vauxp2          : in  STD_LOGIC;                         -- Auxiliary Channel 2
-    vauxn2          : in  STD_LOGIC;
-    vauxp3          : in  STD_LOGIC;                         -- Auxiliary Channel 3
-    vauxn3          : in  STD_LOGIC;
-    vauxp8          : in  STD_LOGIC;                         -- Auxiliary Channel 8
-    vauxn8          : in  STD_LOGIC;
-    vauxp9          : in  STD_LOGIC;                         -- Auxiliary Channel 9
-    vauxn9          : in  STD_LOGIC;
-    vauxp10         : in  STD_LOGIC;                         -- Auxiliary Channel 10
-    vauxn10         : in  STD_LOGIC;
-    vauxp11         : in  STD_LOGIC;                         -- Auxiliary Channel 11
-    vauxn11         : in  STD_LOGIC;
     busy_out        : out  STD_LOGIC;                        -- ADC Busy signal
     channel_out     : out  STD_LOGIC_VECTOR (4 downto 0);    -- Channel Selection Outputs
     eoc_out         : out  STD_LOGIC;                        -- End of Conversion Signal
@@ -117,7 +101,7 @@ end system_xadc_wiz_0_0;
 architecture xilinx of system_xadc_wiz_0_0 is
 
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of xilinx : architecture is "system_xadc_wiz_0_0,xadc_wiz_v3_3_3,{component_name=system_xadc_wiz_0_0,enable_axi=true,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=false,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=true,enable_Vccaux_alaram=trueenable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=true,user_temp_alaram=true,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}";
+  attribute CORE_GENERATION_INFO of xilinx : architecture is "system_xadc_wiz_0_0,xadc_wiz_v3_3_4,{component_name=system_xadc_wiz_0_0,enable_axi=true,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=false,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=true,enable_Vccaux_alaram=trueenable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=true,user_temp_alaram=true,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}";
 
 
   component system_xadc_wiz_0_0_axi_xadc 
@@ -170,22 +154,6 @@ architecture xilinx of system_xadc_wiz_0_0 is
    -- XADC External interface signals
 
     -- Conversion start control signal for Event driven mode
-    vauxp0          : in  STD_LOGIC;                         -- Auxiliary Channel 0
-    vauxn0          : in  STD_LOGIC;
-    vauxp1          : in  STD_LOGIC;                         -- Auxiliary Channel 1
-    vauxn1          : in  STD_LOGIC;
-    vauxp2          : in  STD_LOGIC;                         -- Auxiliary Channel 2
-    vauxn2          : in  STD_LOGIC;
-    vauxp3          : in  STD_LOGIC;                         -- Auxiliary Channel 3
-    vauxn3          : in  STD_LOGIC;
-    vauxp8          : in  STD_LOGIC;                         -- Auxiliary Channel 8
-    vauxn8          : in  STD_LOGIC;
-    vauxp9          : in  STD_LOGIC;                         -- Auxiliary Channel 9
-    vauxn9          : in  STD_LOGIC;
-    vauxp10         : in  STD_LOGIC;                         -- Auxiliary Channel 10
-    vauxn10         : in  STD_LOGIC;
-    vauxp11         : in  STD_LOGIC;                         -- Auxiliary Channel 11
-    vauxn11         : in  STD_LOGIC;
     busy_out        : out  STD_LOGIC;                        -- ADC Busy signal
     channel_out     : out  STD_LOGIC_VECTOR (4 downto 0);    -- Channel Selection Outputs
     eoc_out         : out  STD_LOGIC;                        -- End of Conversion Signal
@@ -239,22 +207,6 @@ begin
     s_axi_rvalid    => s_axi_rvalid,                    
     s_axi_rready    => s_axi_rready,                    
     ip2intc_irpt    => ip2intc_irpt,  
-    vauxp0 => vauxp0,
-    vauxn0 => vauxn0,
-    vauxp1 => vauxp1,
-    vauxn1 => vauxn1,
-    vauxp2 => vauxp2,
-    vauxn2 => vauxn2,
-    vauxp3 => vauxp3,
-    vauxn3 => vauxn3,
-    vauxp8 => vauxp8,
-    vauxn8 => vauxn8,
-    vauxp9 => vauxp9,
-    vauxn9 => vauxn9,
-    vauxp10 => vauxp10,
-    vauxn10 => vauxn10,
-    vauxp11 => vauxp11,
-    vauxn11 => vauxn11,
     busy_out => busy_out,
     channel_out => channel_out,
     eoc_out => eoc_out,

@@ -1,17 +1,113 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-// Date        : Mon Jul 24 14:33:22 2017
-// Host        : WK73 running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim -rename_top system_PWM_0_0 -prefix
-//               system_PWM_0_0_ system_PWM_0_0_sim_netlist.v
+// Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
+// Date        : Fri Dec  8 20:07:51 2017
+// Host        : DESKTOP-9HMNAI5 running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               C:/sam_work/git/digilent/Arty-S7-25-base/src/bd/system/ip/system_PWM_0_0/system_PWM_0_0_sim_netlist.v
 // Design      : system_PWM_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
-// Device      : xc7s50csga324-1
+// Device      : xc7s25csga324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "system_PWM_0_0,PWM_v2_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "PWM_v2_0,Vivado 2017.3" *) 
+(* NotValidForBitStream *)
+module system_PWM_0_0
+   (pwm,
+    pwm_axi_awaddr,
+    pwm_axi_awprot,
+    pwm_axi_awvalid,
+    pwm_axi_awready,
+    pwm_axi_wdata,
+    pwm_axi_wstrb,
+    pwm_axi_wvalid,
+    pwm_axi_wready,
+    pwm_axi_bresp,
+    pwm_axi_bvalid,
+    pwm_axi_bready,
+    pwm_axi_araddr,
+    pwm_axi_arprot,
+    pwm_axi_arvalid,
+    pwm_axi_arready,
+    pwm_axi_rdata,
+    pwm_axi_rresp,
+    pwm_axi_rvalid,
+    pwm_axi_rready,
+    pwm_axi_aclk,
+    pwm_axi_aresetn);
+  output [5:0]pwm;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWADDR" *) input [6:0]pwm_axi_awaddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWPROT" *) input [2:0]pwm_axi_awprot;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWVALID" *) input pwm_axi_awvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWREADY" *) output pwm_axi_awready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WDATA" *) input [31:0]pwm_axi_wdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WSTRB" *) input [3:0]pwm_axi_wstrb;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WVALID" *) input pwm_axi_wvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WREADY" *) output pwm_axi_wready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BRESP" *) output [1:0]pwm_axi_bresp;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BVALID" *) output pwm_axi_bvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BREADY" *) input pwm_axi_bready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARADDR" *) input [6:0]pwm_axi_araddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARPROT" *) input [2:0]pwm_axi_arprot;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARVALID" *) input pwm_axi_arvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARREADY" *) output pwm_axi_arready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RDATA" *) output [31:0]pwm_axi_rdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RRESP" *) output [1:0]pwm_axi_rresp;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RVALID" *) output pwm_axi_rvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input pwm_axi_rready;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 PWM_AXI_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI_CLK, ASSOCIATED_BUSIF PWM_AXI, ASSOCIATED_RESET pwm_axi_aresetn, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *) input pwm_axi_aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 PWM_AXI_RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI_RST, POLARITY ACTIVE_LOW" *) input pwm_axi_aresetn;
+
+  wire \<const0> ;
+  wire [5:0]pwm;
+  wire pwm_axi_aclk;
+  wire [6:0]pwm_axi_araddr;
+  wire pwm_axi_aresetn;
+  wire pwm_axi_arready;
+  wire pwm_axi_arvalid;
+  wire [6:0]pwm_axi_awaddr;
+  wire pwm_axi_awready;
+  wire pwm_axi_awvalid;
+  wire pwm_axi_bready;
+  wire pwm_axi_bvalid;
+  wire [31:0]pwm_axi_rdata;
+  wire pwm_axi_rready;
+  wire pwm_axi_rvalid;
+  wire [31:0]pwm_axi_wdata;
+  wire pwm_axi_wready;
+  wire [3:0]pwm_axi_wstrb;
+  wire pwm_axi_wvalid;
+
+  assign pwm_axi_bresp[1] = \<const0> ;
+  assign pwm_axi_bresp[0] = \<const0> ;
+  assign pwm_axi_rresp[1] = \<const0> ;
+  assign pwm_axi_rresp[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  system_PWM_0_0_PWM_v2_0 inst
+       (.pwm(pwm),
+        .pwm_axi_aclk(pwm_axi_aclk),
+        .pwm_axi_araddr(pwm_axi_araddr[6:2]),
+        .pwm_axi_aresetn(pwm_axi_aresetn),
+        .pwm_axi_arready(pwm_axi_arready),
+        .pwm_axi_arvalid(pwm_axi_arvalid),
+        .pwm_axi_awaddr(pwm_axi_awaddr[6:2]),
+        .pwm_axi_awready(pwm_axi_awready),
+        .pwm_axi_awvalid(pwm_axi_awvalid),
+        .pwm_axi_bready(pwm_axi_bready),
+        .pwm_axi_bvalid(pwm_axi_bvalid),
+        .pwm_axi_rdata(pwm_axi_rdata),
+        .pwm_axi_rready(pwm_axi_rready),
+        .pwm_axi_rvalid(pwm_axi_rvalid),
+        .pwm_axi_wdata(pwm_axi_wdata),
+        .pwm_axi_wready(pwm_axi_wready),
+        .pwm_axi_wstrb(pwm_axi_wstrb),
+        .pwm_axi_wvalid(pwm_axi_wvalid));
+endmodule
+
+(* ORIG_REF_NAME = "PWM_AXI" *) 
 module system_PWM_0_0_PWM_AXI
    (pwm_axi_awready,
     pwm_axi_wready,
@@ -4095,6 +4191,7 @@ module system_PWM_0_0_PWM_AXI
         .R(SR));
 endmodule
 
+(* ORIG_REF_NAME = "PWM_v2_0" *) 
 module system_PWM_0_0_PWM_v2_0
    (pwm_axi_arready,
     pwm_axi_awready,
@@ -4201,37 +4298,6 @@ module system_PWM_0_0_PWM_v2_0
   wire count1_carry_n_2;
   wire count1_carry_n_3;
   wire \count[0]_i_2_n_0 ;
-  wire \count[0]_i_3_n_0 ;
-  wire \count[0]_i_4_n_0 ;
-  wire \count[0]_i_5_n_0 ;
-  wire \count[12]_i_2_n_0 ;
-  wire \count[12]_i_3_n_0 ;
-  wire \count[12]_i_4_n_0 ;
-  wire \count[12]_i_5_n_0 ;
-  wire \count[16]_i_2_n_0 ;
-  wire \count[16]_i_3_n_0 ;
-  wire \count[16]_i_4_n_0 ;
-  wire \count[16]_i_5_n_0 ;
-  wire \count[20]_i_2_n_0 ;
-  wire \count[20]_i_3_n_0 ;
-  wire \count[20]_i_4_n_0 ;
-  wire \count[20]_i_5_n_0 ;
-  wire \count[24]_i_2_n_0 ;
-  wire \count[24]_i_3_n_0 ;
-  wire \count[24]_i_4_n_0 ;
-  wire \count[24]_i_5_n_0 ;
-  wire \count[28]_i_2_n_0 ;
-  wire \count[28]_i_3_n_0 ;
-  wire \count[28]_i_4_n_0 ;
-  wire \count[28]_i_5_n_0 ;
-  wire \count[4]_i_2_n_0 ;
-  wire \count[4]_i_3_n_0 ;
-  wire \count[4]_i_4_n_0 ;
-  wire \count[4]_i_5_n_0 ;
-  wire \count[8]_i_2_n_0 ;
-  wire \count[8]_i_3_n_0 ;
-  wire \count[8]_i_4_n_0 ;
-  wire \count[8]_i_5_n_0 ;
   wire [31:0]count_reg;
   wire \count_reg[0]_i_1_n_0 ;
   wire \count_reg[0]_i_1_n_1 ;
@@ -5048,165 +5114,10 @@ module system_PWM_0_0_PWM_v2_0
         .I3(count_reg[1]),
         .O(count1_carry_i_8_n_0));
   LUT1 #(
-    .INIT(2'h2)) 
-    \count[0]_i_2 
-       (.I0(count_reg[3]),
-        .O(\count[0]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[0]_i_3 
-       (.I0(count_reg[2]),
-        .O(\count[0]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[0]_i_4 
-       (.I0(count_reg[1]),
-        .O(\count[0]_i_4_n_0 ));
-  LUT1 #(
     .INIT(2'h1)) 
-    \count[0]_i_5 
+    \count[0]_i_2 
        (.I0(count_reg[0]),
-        .O(\count[0]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[12]_i_2 
-       (.I0(count_reg[15]),
-        .O(\count[12]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[12]_i_3 
-       (.I0(count_reg[14]),
-        .O(\count[12]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[12]_i_4 
-       (.I0(count_reg[13]),
-        .O(\count[12]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[12]_i_5 
-       (.I0(count_reg[12]),
-        .O(\count[12]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[16]_i_2 
-       (.I0(count_reg[19]),
-        .O(\count[16]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[16]_i_3 
-       (.I0(count_reg[18]),
-        .O(\count[16]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[16]_i_4 
-       (.I0(count_reg[17]),
-        .O(\count[16]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[16]_i_5 
-       (.I0(count_reg[16]),
-        .O(\count[16]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[20]_i_2 
-       (.I0(count_reg[23]),
-        .O(\count[20]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[20]_i_3 
-       (.I0(count_reg[22]),
-        .O(\count[20]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[20]_i_4 
-       (.I0(count_reg[21]),
-        .O(\count[20]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[20]_i_5 
-       (.I0(count_reg[20]),
-        .O(\count[20]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[24]_i_2 
-       (.I0(count_reg[27]),
-        .O(\count[24]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[24]_i_3 
-       (.I0(count_reg[26]),
-        .O(\count[24]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[24]_i_4 
-       (.I0(count_reg[25]),
-        .O(\count[24]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[24]_i_5 
-       (.I0(count_reg[24]),
-        .O(\count[24]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[28]_i_2 
-       (.I0(count_reg[31]),
-        .O(\count[28]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[28]_i_3 
-       (.I0(count_reg[30]),
-        .O(\count[28]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[28]_i_4 
-       (.I0(count_reg[29]),
-        .O(\count[28]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[28]_i_5 
-       (.I0(count_reg[28]),
-        .O(\count[28]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[4]_i_2 
-       (.I0(count_reg[7]),
-        .O(\count[4]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[4]_i_3 
-       (.I0(count_reg[6]),
-        .O(\count[4]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[4]_i_4 
-       (.I0(count_reg[5]),
-        .O(\count[4]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[4]_i_5 
-       (.I0(count_reg[4]),
-        .O(\count[4]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[8]_i_2 
-       (.I0(count_reg[11]),
-        .O(\count[8]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[8]_i_3 
-       (.I0(count_reg[10]),
-        .O(\count[8]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[8]_i_4 
-       (.I0(count_reg[9]),
-        .O(\count[8]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \count[8]_i_5 
-       (.I0(count_reg[8]),
-        .O(\count[8]_i_5_n_0 ));
+        .O(\count[0]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[0] 
@@ -5221,7 +5132,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\count_reg[0]_i_1_n_4 ,\count_reg[0]_i_1_n_5 ,\count_reg[0]_i_1_n_6 ,\count_reg[0]_i_1_n_7 }),
-        .S({\count[0]_i_2_n_0 ,\count[0]_i_3_n_0 ,\count[0]_i_4_n_0 ,\count[0]_i_5_n_0 }));
+        .S({count_reg[3:1],\count[0]_i_2_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[10] 
@@ -5252,7 +5163,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\count_reg[12]_i_1_n_4 ,\count_reg[12]_i_1_n_5 ,\count_reg[12]_i_1_n_6 ,\count_reg[12]_i_1_n_7 }),
-        .S({\count[12]_i_2_n_0 ,\count[12]_i_3_n_0 ,\count[12]_i_4_n_0 ,\count[12]_i_5_n_0 }));
+        .S(count_reg[15:12]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[13] 
@@ -5291,7 +5202,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\count_reg[16]_i_1_n_4 ,\count_reg[16]_i_1_n_5 ,\count_reg[16]_i_1_n_6 ,\count_reg[16]_i_1_n_7 }),
-        .S({\count[16]_i_2_n_0 ,\count[16]_i_3_n_0 ,\count[16]_i_4_n_0 ,\count[16]_i_5_n_0 }));
+        .S(count_reg[19:16]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[17] 
@@ -5338,7 +5249,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\count_reg[20]_i_1_n_4 ,\count_reg[20]_i_1_n_5 ,\count_reg[20]_i_1_n_6 ,\count_reg[20]_i_1_n_7 }),
-        .S({\count[20]_i_2_n_0 ,\count[20]_i_3_n_0 ,\count[20]_i_4_n_0 ,\count[20]_i_5_n_0 }));
+        .S(count_reg[23:20]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[21] 
@@ -5377,7 +5288,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\count_reg[24]_i_1_n_4 ,\count_reg[24]_i_1_n_5 ,\count_reg[24]_i_1_n_6 ,\count_reg[24]_i_1_n_7 }),
-        .S({\count[24]_i_2_n_0 ,\count[24]_i_3_n_0 ,\count[24]_i_4_n_0 ,\count[24]_i_5_n_0 }));
+        .S(count_reg[27:24]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[25] 
@@ -5416,7 +5327,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\count_reg[28]_i_1_n_4 ,\count_reg[28]_i_1_n_5 ,\count_reg[28]_i_1_n_6 ,\count_reg[28]_i_1_n_7 }),
-        .S({\count[28]_i_2_n_0 ,\count[28]_i_3_n_0 ,\count[28]_i_4_n_0 ,\count[28]_i_5_n_0 }));
+        .S(count_reg[31:28]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[29] 
@@ -5471,7 +5382,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\count_reg[4]_i_1_n_4 ,\count_reg[4]_i_1_n_5 ,\count_reg[4]_i_1_n_6 ,\count_reg[4]_i_1_n_7 }),
-        .S({\count[4]_i_2_n_0 ,\count[4]_i_3_n_0 ,\count[4]_i_4_n_0 ,\count[4]_i_5_n_0 }));
+        .S(count_reg[7:4]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[5] 
@@ -5510,7 +5421,7 @@ module system_PWM_0_0_PWM_v2_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\count_reg[8]_i_1_n_4 ,\count_reg[8]_i_1_n_5 ,\count_reg[8]_i_1_n_6 ,\count_reg[8]_i_1_n_7 }),
-        .S({\count[8]_i_2_n_0 ,\count[8]_i_3_n_0 ,\count[8]_i_4_n_0 ,\count[8]_i_5_n_0 }));
+        .S(count_reg[11:8]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[9] 
@@ -8949,101 +8860,6 @@ module system_PWM_0_0_PWM_v2_0
        (.I0(pwm18_in),
         .I1(enable),
         .O(pwm[5]));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "system_PWM_0_0,PWM_v2_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "PWM_v2_0,Vivado 2017.2" *) 
-(* NotValidForBitStream *)
-module system_PWM_0_0
-   (pwm,
-    pwm_axi_awaddr,
-    pwm_axi_awprot,
-    pwm_axi_awvalid,
-    pwm_axi_awready,
-    pwm_axi_wdata,
-    pwm_axi_wstrb,
-    pwm_axi_wvalid,
-    pwm_axi_wready,
-    pwm_axi_bresp,
-    pwm_axi_bvalid,
-    pwm_axi_bready,
-    pwm_axi_araddr,
-    pwm_axi_arprot,
-    pwm_axi_arvalid,
-    pwm_axi_arready,
-    pwm_axi_rdata,
-    pwm_axi_rresp,
-    pwm_axi_rvalid,
-    pwm_axi_rready,
-    pwm_axi_aclk,
-    pwm_axi_aresetn);
-  output [5:0]pwm;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWADDR" *) input [6:0]pwm_axi_awaddr;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWPROT" *) input [2:0]pwm_axi_awprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWVALID" *) input pwm_axi_awvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWREADY" *) output pwm_axi_awready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WDATA" *) input [31:0]pwm_axi_wdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WSTRB" *) input [3:0]pwm_axi_wstrb;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WVALID" *) input pwm_axi_wvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WREADY" *) output pwm_axi_wready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BRESP" *) output [1:0]pwm_axi_bresp;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BVALID" *) output pwm_axi_bvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BREADY" *) input pwm_axi_bready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARADDR" *) input [6:0]pwm_axi_araddr;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARPROT" *) input [2:0]pwm_axi_arprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARVALID" *) input pwm_axi_arvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARREADY" *) output pwm_axi_arready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RDATA" *) output [31:0]pwm_axi_rdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RRESP" *) output [1:0]pwm_axi_rresp;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RVALID" *) output pwm_axi_rvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RREADY" *) input pwm_axi_rready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 PWM_AXI_CLK CLK" *) input pwm_axi_aclk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 PWM_AXI_RST RST" *) input pwm_axi_aresetn;
-
-  wire \<const0> ;
-  wire [5:0]pwm;
-  wire pwm_axi_aclk;
-  wire [6:0]pwm_axi_araddr;
-  wire pwm_axi_aresetn;
-  wire pwm_axi_arready;
-  wire pwm_axi_arvalid;
-  wire [6:0]pwm_axi_awaddr;
-  wire pwm_axi_awready;
-  wire pwm_axi_awvalid;
-  wire pwm_axi_bready;
-  wire pwm_axi_bvalid;
-  wire [31:0]pwm_axi_rdata;
-  wire pwm_axi_rready;
-  wire pwm_axi_rvalid;
-  wire [31:0]pwm_axi_wdata;
-  wire pwm_axi_wready;
-  wire [3:0]pwm_axi_wstrb;
-  wire pwm_axi_wvalid;
-
-  assign pwm_axi_bresp[1] = \<const0> ;
-  assign pwm_axi_bresp[0] = \<const0> ;
-  assign pwm_axi_rresp[1] = \<const0> ;
-  assign pwm_axi_rresp[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  system_PWM_0_0_PWM_v2_0 inst
-       (.pwm(pwm),
-        .pwm_axi_aclk(pwm_axi_aclk),
-        .pwm_axi_araddr(pwm_axi_araddr[6:2]),
-        .pwm_axi_aresetn(pwm_axi_aresetn),
-        .pwm_axi_arready(pwm_axi_arready),
-        .pwm_axi_arvalid(pwm_axi_arvalid),
-        .pwm_axi_awaddr(pwm_axi_awaddr[6:2]),
-        .pwm_axi_awready(pwm_axi_awready),
-        .pwm_axi_awvalid(pwm_axi_awvalid),
-        .pwm_axi_bready(pwm_axi_bready),
-        .pwm_axi_bvalid(pwm_axi_bvalid),
-        .pwm_axi_rdata(pwm_axi_rdata),
-        .pwm_axi_rready(pwm_axi_rready),
-        .pwm_axi_rvalid(pwm_axi_rvalid),
-        .pwm_axi_wdata(pwm_axi_wdata),
-        .pwm_axi_wready(pwm_axi_wready),
-        .pwm_axi_wstrb(pwm_axi_wstrb),
-        .pwm_axi_wvalid(pwm_axi_wvalid));
 endmodule
 `ifndef GLBL
 `define GLBL

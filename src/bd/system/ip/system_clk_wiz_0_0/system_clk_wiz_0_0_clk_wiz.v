@@ -84,6 +84,8 @@ wire clk_in2_system_clk_wiz_0_0;
     .I (clk_in1));
 
 
+
+
   // Clocking PRIMITIVE
   //------------------------------------
 
@@ -186,6 +188,9 @@ wire clk_in2_system_clk_wiz_0_0;
   BUFG clkf_buf
    (.O (clkfbout_buf_system_clk_wiz_0_0),
     .I (clkfbout_system_clk_wiz_0_0));
+
+
+
 
 
 

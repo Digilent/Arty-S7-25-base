@@ -1,55 +1,161 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-// Date        : Mon Jul 24 14:28:08 2017
-// Host        : WK73 running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim -rename_top system_axi_uartlite_0_0 -prefix
-//               system_axi_uartlite_0_0_ system_axi_uartlite_0_0_sim_netlist.v
+// Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
+// Date        : Fri Dec  8 20:06:22 2017
+// Host        : DESKTOP-9HMNAI5 running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               C:/sam_work/git/digilent/Arty-S7-25-base/src/bd/system/ip/system_axi_uartlite_0_0/system_axi_uartlite_0_0_sim_netlist.v
 // Design      : system_axi_uartlite_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
-// Device      : xc7s50csga324-1
+// Device      : xc7s25csga324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-module system_axi_uartlite_0_0_address_decoder
-   (tx_Buffer_Empty_Pre_reg,
-    \s_axi_rresp_i_reg[1] ,
-    enable_interrupts_reg,
-    ip2bus_error,
-    fifo_wr,
-    \INFERRED_GEN.cnt_i_reg[2] ,
-    D,
-    \INFERRED_GEN.cnt_i_reg[2]_0 ,
-    \state_reg[1] ,
+(* CHECK_LICENSE_TYPE = "system_axi_uartlite_0_0,axi_uartlite,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_uartlite,Vivado 2017.3" *) 
+(* NotValidForBitStream *)
+module system_axi_uartlite_0_0
+   (s_axi_aclk,
+    s_axi_aresetn,
+    interrupt,
+    s_axi_awaddr,
+    s_axi_awvalid,
+    s_axi_awready,
+    s_axi_wdata,
+    s_axi_wstrb,
+    s_axi_wvalid,
+    s_axi_wready,
+    s_axi_bresp,
+    s_axi_bvalid,
+    s_axi_bready,
+    s_axi_araddr,
+    s_axi_arvalid,
     s_axi_arready,
-    FIFO_Full_reg,
+    s_axi_rdata,
+    s_axi_rresp,
+    s_axi_rvalid,
+    s_axi_rready,
+    rx,
+    tx);
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 ARESETN RST" *) (* x_interface_parameter = "XIL_INTERFACENAME ARESETN, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME INTERRUPT, SENSITIVITY EDGE_RISING, PortWidth 1" *) output interrupt;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [3:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [3:0]s_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RxD" *) (* x_interface_parameter = "XIL_INTERFACENAME UART, BOARD.ASSOCIATED_PARAM UARTLITE_BOARD_INTERFACE" *) input rx;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART TxD" *) output tx;
+
+  wire interrupt;
+  wire rx;
+  wire s_axi_aclk;
+  wire [3:0]s_axi_araddr;
+  wire s_axi_aresetn;
+  wire s_axi_arready;
+  wire s_axi_arvalid;
+  wire [3:0]s_axi_awaddr;
+  wire s_axi_awready;
+  wire s_axi_awvalid;
+  wire s_axi_bready;
+  wire [1:0]s_axi_bresp;
+  wire s_axi_bvalid;
+  wire [31:0]s_axi_rdata;
+  wire s_axi_rready;
+  wire [1:0]s_axi_rresp;
+  wire s_axi_rvalid;
+  wire [31:0]s_axi_wdata;
+  wire s_axi_wready;
+  wire [3:0]s_axi_wstrb;
+  wire s_axi_wvalid;
+  wire tx;
+
+  (* C_BAUDRATE = "115200" *) 
+  (* C_DATA_BITS = "8" *) 
+  (* C_FAMILY = "spartan7" *) 
+  (* C_ODD_PARITY = "0" *) 
+  (* C_S_AXI_ACLK_FREQ_HZ = "100000000" *) 
+  (* C_S_AXI_ADDR_WIDTH = "4" *) 
+  (* C_S_AXI_DATA_WIDTH = "32" *) 
+  (* C_USE_PARITY = "0" *) 
+  (* downgradeipidentifiedwarnings = "yes" *) 
+  system_axi_uartlite_0_0_axi_uartlite U0
+       (.interrupt(interrupt),
+        .rx(rx),
+        .s_axi_aclk(s_axi_aclk),
+        .s_axi_araddr(s_axi_araddr),
+        .s_axi_aresetn(s_axi_aresetn),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_awaddr(s_axi_awaddr),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_bresp(s_axi_bresp),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rready(s_axi_rready),
+        .s_axi_rresp(s_axi_rresp),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_wstrb(s_axi_wstrb),
+        .s_axi_wvalid(s_axi_wvalid),
+        .tx(tx));
+endmodule
+
+(* ORIG_REF_NAME = "address_decoder" *) 
+module system_axi_uartlite_0_0_address_decoder
+   (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ,
+    enable_interrupts_reg,
     reset_TX_FIFO,
     reset_RX_FIFO,
+    D,
     s_axi_awready,
+    s_axi_arready,
+    \s_axi_rdata_i_reg[7] ,
+    ip2bus_error,
+    \INFERRED_GEN.cnt_i_reg[2] ,
+    rx_Data_Present_Pre_reg,
+    FIFO_Full_reg,
     bus2ip_rdce,
+    fifo_wr,
+    \INFERRED_GEN.cnt_i_reg[2]_0 ,
+    tx_Buffer_Empty_Pre_reg,
     enable_interrupts_reg_0,
-    tx_Buffer_Empty_Pre_reg_0,
     s_axi_rvalid_i_reg,
     s_axi_bvalid_i_reg,
     \s_axi_bresp_i_reg[1] ,
-    rx_Data_Present_Pre_reg,
     start2,
     s_axi_aclk,
-    tx_Buffer_Full,
-    Q,
-    out,
-    rx_Buffer_Full,
-    \INFERRED_GEN.cnt_i_reg[4] ,
-    enable_interrupts,
-    status_reg,
-    \state_reg[1]_0 ,
-    \state_reg[1]_1 ,
-    s_axi_wvalid,
-    s_axi_arvalid,
     s_axi_wdata,
     \state_reg[0] ,
+    Q,
+    s_axi_arvalid,
+    \state_reg[1] ,
+    s_axi_wvalid,
     s_axi_aresetn,
+    \INFERRED_GEN.cnt_i_reg[4] ,
+    out,
+    rx_Buffer_Full,
+    \INFERRED_GEN.cnt_i_reg[4]_0 ,
+    tx_Buffer_Full,
+    enable_interrupts,
+    status_reg,
     s_axi_rready,
     s_axi_rvalid_i_reg_0,
     s_axi_bready,
@@ -58,43 +164,43 @@ module system_axi_uartlite_0_0_address_decoder
     bus2ip_rnw_i,
     \bus2ip_addr_i_reg[3] ,
     \bus2ip_addr_i_reg[2] );
-  output tx_Buffer_Empty_Pre_reg;
-  output \s_axi_rresp_i_reg[1] ;
+  output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
+  output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ;
   output enable_interrupts_reg;
-  output ip2bus_error;
-  output fifo_wr;
-  output \INFERRED_GEN.cnt_i_reg[2] ;
-  output [7:0]D;
-  output \INFERRED_GEN.cnt_i_reg[2]_0 ;
-  output [1:0]\state_reg[1] ;
-  output s_axi_arready;
-  output FIFO_Full_reg;
   output reset_TX_FIFO;
   output reset_RX_FIFO;
+  output [1:0]D;
   output s_axi_awready;
+  output s_axi_arready;
+  output [7:0]\s_axi_rdata_i_reg[7] ;
+  output ip2bus_error;
+  output \INFERRED_GEN.cnt_i_reg[2] ;
+  output rx_Data_Present_Pre_reg;
+  output FIFO_Full_reg;
   output [0:0]bus2ip_rdce;
+  output fifo_wr;
+  output \INFERRED_GEN.cnt_i_reg[2]_0 ;
+  output tx_Buffer_Empty_Pre_reg;
   output enable_interrupts_reg_0;
-  output tx_Buffer_Empty_Pre_reg_0;
   output s_axi_rvalid_i_reg;
   output s_axi_bvalid_i_reg;
   output \s_axi_bresp_i_reg[1] ;
-  output rx_Data_Present_Pre_reg;
   input start2;
   input s_axi_aclk;
-  input tx_Buffer_Full;
-  input [0:0]Q;
-  input [7:0]out;
-  input rx_Buffer_Full;
-  input [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
-  input enable_interrupts;
-  input [1:0]status_reg;
-  input \state_reg[1]_0 ;
-  input [1:0]\state_reg[1]_1 ;
-  input s_axi_wvalid;
-  input s_axi_arvalid;
   input [2:0]s_axi_wdata;
   input \state_reg[0] ;
+  input [1:0]Q;
+  input s_axi_arvalid;
+  input \state_reg[1] ;
+  input s_axi_wvalid;
   input s_axi_aresetn;
+  input [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
+  input [7:0]out;
+  input rx_Buffer_Full;
+  input [0:0]\INFERRED_GEN.cnt_i_reg[4]_0 ;
+  input tx_Buffer_Full;
+  input enable_interrupts;
+  input [1:0]status_reg;
   input s_axi_rready;
   input s_axi_rvalid_i_reg_0;
   input s_axi_bready;
@@ -105,14 +211,17 @@ module system_axi_uartlite_0_0_address_decoder
   input \bus2ip_addr_i_reg[2] ;
 
   wire Bus_RNW_reg_i_1_n_0;
-  wire [7:0]D;
+  wire [1:0]D;
   wire FIFO_Full_reg;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ;
   wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ;
   wire \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ;
   wire \INFERRED_GEN.cnt_i_reg[2] ;
   wire \INFERRED_GEN.cnt_i_reg[2]_0 ;
   wire [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
-  wire [0:0]Q;
+  wire [0:0]\INFERRED_GEN.cnt_i_reg[4]_0 ;
+  wire [1:0]Q;
   wire \bus2ip_addr_i_reg[2] ;
   wire \bus2ip_addr_i_reg[3] ;
   wire [0:0]bus2ip_rdce;
@@ -142,20 +251,17 @@ module system_axi_uartlite_0_0_address_decoder
   wire \s_axi_bresp_i_reg[1] ;
   wire s_axi_bvalid_i_reg;
   wire s_axi_bvalid_i_reg_0;
+  wire [7:0]\s_axi_rdata_i_reg[7] ;
   wire s_axi_rready;
-  wire \s_axi_rresp_i_reg[1] ;
   wire s_axi_rvalid_i_reg;
   wire s_axi_rvalid_i_reg_0;
   wire [2:0]s_axi_wdata;
   wire s_axi_wvalid;
   wire start2;
   wire \state_reg[0] ;
-  wire [1:0]\state_reg[1] ;
-  wire \state_reg[1]_0 ;
-  wire [1:0]\state_reg[1]_1 ;
+  wire \state_reg[1] ;
   wire [1:0]status_reg;
   wire tx_Buffer_Empty_Pre_reg;
-  wire tx_Buffer_Empty_Pre_reg_0;
   wire tx_Buffer_Full;
 
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
@@ -176,21 +282,20 @@ module system_axi_uartlite_0_0_address_decoder
        (.C(s_axi_aclk),
         .CE(start2),
         .D(ce_expnd_i_3),
-        .Q(\s_axi_rresp_i_reg[1] ),
+        .Q(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
         .R(cs_ce_clr));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT3 #(
-    .INIT(8'h08)) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \GEN_BKEND_CE_REGISTERS[1].ce_out_i[1]_i_1 
-       (.I0(start2),
-        .I1(\bus2ip_addr_i_reg[2] ),
-        .I2(\bus2ip_addr_i_reg[3] ),
+       (.I0(\bus2ip_addr_i_reg[2] ),
+        .I1(\bus2ip_addr_i_reg[3] ),
         .O(ce_expnd_i_2));
   FDRE \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] 
        (.C(s_axi_aclk),
         .CE(start2),
         .D(ce_expnd_i_2),
-        .Q(tx_Buffer_Empty_Pre_reg),
+        .Q(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
         .R(cs_ce_clr));
   FDRE \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] 
        (.C(s_axi_aclk),
@@ -201,19 +306,18 @@ module system_axi_uartlite_0_0_address_decoder
   LUT5 #(
     .INIT(32'hFFFEFFFF)) 
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i[3]_i_1 
-       (.I0(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
-        .I1(tx_Buffer_Empty_Pre_reg),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(\s_axi_rresp_i_reg[1] ),
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I1(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I3(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
         .I4(s_axi_aresetn),
         .O(cs_ce_clr));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT3 #(
-    .INIT(8'h80)) 
+  LUT2 #(
+    .INIT(4'h8)) 
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i[3]_i_2 
        (.I0(\bus2ip_addr_i_reg[3] ),
-        .I1(start2),
-        .I2(\bus2ip_addr_i_reg[2] ),
+        .I1(\bus2ip_addr_i_reg[2] ),
         .O(ce_expnd_i_0));
   FDRE \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] 
        (.C(s_axi_aclk),
@@ -226,43 +330,41 @@ module system_axi_uartlite_0_0_address_decoder
     .INIT(8'hF7)) 
     \INFERRED_GEN.cnt_i[3]_i_2 
        (.I0(enable_interrupts_reg),
-        .I1(\s_axi_rresp_i_reg[1] ),
-        .I2(Q),
-        .O(\INFERRED_GEN.cnt_i_reg[2]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+        .I1(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I2(\INFERRED_GEN.cnt_i_reg[4] ),
+        .O(\INFERRED_GEN.cnt_i_reg[2] ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \INFERRED_GEN.cnt_i[4]_i_3 
-       (.I0(\s_axi_rresp_i_reg[1] ),
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
         .I1(enable_interrupts_reg),
         .O(FIFO_Full_reg));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'hFD)) 
     \INFERRED_GEN.cnt_i[4]_i_5 
-       (.I0(tx_Buffer_Empty_Pre_reg),
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
         .I1(enable_interrupts_reg),
         .I2(tx_Buffer_Full),
-        .O(\INFERRED_GEN.cnt_i_reg[2] ));
+        .O(\INFERRED_GEN.cnt_i_reg[2]_0 ));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'h10)) 
-    \INFERRED_GEN.data_reg[15][0]_srl16_i_1 
+    \INFERRED_GEN.data_reg[15][7]_srl16_i_1 
        (.I0(tx_Buffer_Full),
         .I1(enable_interrupts_reg),
-        .I2(tx_Buffer_Empty_Pre_reg),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
         .O(fifo_wr));
   system_axi_uartlite_0_0_pselect_f \MEM_DECODE_GEN[0].PER_CE_GEN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I 
        (.\bus2ip_addr_i_reg[2] (\bus2ip_addr_i_reg[2] ),
         .\bus2ip_addr_i_reg[3] (\bus2ip_addr_i_reg[3] ),
-        .ce_expnd_i_3(ce_expnd_i_3),
-        .start2(start2));
+        .ce_expnd_i_3(ce_expnd_i_3));
   system_axi_uartlite_0_0_pselect_f__parameterized1 \MEM_DECODE_GEN[0].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I 
        (.\bus2ip_addr_i_reg[2] (\bus2ip_addr_i_reg[2] ),
         .\bus2ip_addr_i_reg[3] (\bus2ip_addr_i_reg[3] ),
-        .ce_expnd_i_1(ce_expnd_i_1),
-        .start2(start2));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+        .ce_expnd_i_1(ce_expnd_i_1));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h8)) 
     clr_Status_i_1
@@ -283,185 +385,186 @@ module system_axi_uartlite_0_0_address_decoder
     .INIT(8'h40)) 
     reset_RX_FIFO_i_1
        (.I0(enable_interrupts_reg),
-        .I1(s_axi_wdata[1]),
-        .I2(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I1(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I2(s_axi_wdata[1]),
         .O(reset_RX_FIFO));
   (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'h40)) 
     reset_TX_FIFO_i_1
        (.I0(enable_interrupts_reg),
-        .I1(s_axi_wdata[0]),
-        .I2(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I1(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I2(s_axi_wdata[0]),
         .O(reset_TX_FIFO));
   LUT4 #(
-    .INIT(16'h002A)) 
+    .INIT(16'h0444)) 
     rx_Data_Present_Pre_i_1
-       (.I0(s_axi_aresetn),
-        .I1(\s_axi_rresp_i_reg[1] ),
+       (.I0(\INFERRED_GEN.cnt_i_reg[4] ),
+        .I1(s_axi_aresetn),
         .I2(enable_interrupts_reg),
-        .I3(Q),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
         .O(rx_Data_Present_Pre_reg));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'hF0F0F0E0)) 
     s_axi_arready_INST_0
-       (.I0(\s_axi_rresp_i_reg[1] ),
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
         .I1(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
         .I2(enable_interrupts_reg),
-        .I3(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
-        .I4(tx_Buffer_Empty_Pre_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
         .O(s_axi_arready));
   LUT4 #(
     .INIT(16'hFB08)) 
     \s_axi_bresp_i[1]_i_1 
        (.I0(ip2bus_error),
-        .I1(\state_reg[1]_1 [1]),
-        .I2(\state_reg[1]_1 [0]),
+        .I1(Q[1]),
+        .I2(Q[0]),
         .I3(s_axi_bresp),
         .O(\s_axi_bresp_i_reg[1] ));
   LUT5 #(
-    .INIT(32'h08FF0808)) 
+    .INIT(32'h40FF4040)) 
     s_axi_bvalid_i_i_1
-       (.I0(s_axi_awready),
-        .I1(\state_reg[1]_1 [1]),
-        .I2(\state_reg[1]_1 [0]),
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(s_axi_awready),
         .I3(s_axi_bready),
         .I4(s_axi_bvalid_i_reg_0),
         .O(s_axi_bvalid_i_reg));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
-    .INIT(32'h5C005000)) 
+    .INIT(32'h5050C000)) 
     \s_axi_rdata_i[0]_i_1 
-       (.I0(Q),
+       (.I0(\INFERRED_GEN.cnt_i_reg[4] ),
         .I1(out[0]),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(enable_interrupts_reg),
-        .I4(\s_axi_rresp_i_reg[1] ),
-        .O(D[0]));
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\s_axi_rdata_i_reg[7] [0]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hAC00A000)) 
+    .INIT(32'hA0A0C000)) 
     \s_axi_rdata_i[1]_i_1 
        (.I0(rx_Buffer_Full),
         .I1(out[1]),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(enable_interrupts_reg),
-        .I4(\s_axi_rresp_i_reg[1] ),
-        .O(D[1]));
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\s_axi_rdata_i_reg[7] [1]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
-    .INIT(32'hAC00A000)) 
+    .INIT(32'hA0A0C000)) 
     \s_axi_rdata_i[2]_i_1 
-       (.I0(\INFERRED_GEN.cnt_i_reg[4] ),
+       (.I0(\INFERRED_GEN.cnt_i_reg[4]_0 ),
         .I1(out[2]),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(enable_interrupts_reg),
-        .I4(\s_axi_rresp_i_reg[1] ),
-        .O(D[2]));
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\s_axi_rdata_i_reg[7] [2]));
   LUT5 #(
-    .INIT(32'hAC00A000)) 
+    .INIT(32'hA0A0C000)) 
     \s_axi_rdata_i[3]_i_1 
        (.I0(tx_Buffer_Full),
         .I1(out[3]),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(enable_interrupts_reg),
-        .I4(\s_axi_rresp_i_reg[1] ),
-        .O(D[3]));
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\s_axi_rdata_i_reg[7] [3]));
   LUT5 #(
-    .INIT(32'hAC00A000)) 
+    .INIT(32'hA0A0C000)) 
     \s_axi_rdata_i[4]_i_1 
        (.I0(enable_interrupts),
         .I1(out[4]),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(enable_interrupts_reg),
-        .I4(\s_axi_rresp_i_reg[1] ),
-        .O(D[4]));
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\s_axi_rdata_i_reg[7] [4]));
   LUT5 #(
-    .INIT(32'hAC00A000)) 
+    .INIT(32'hA0A0C000)) 
     \s_axi_rdata_i[5]_i_1 
        (.I0(status_reg[0]),
         .I1(out[5]),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(enable_interrupts_reg),
-        .I4(\s_axi_rresp_i_reg[1] ),
-        .O(D[5]));
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\s_axi_rdata_i_reg[7] [5]));
   LUT5 #(
-    .INIT(32'hAC00A000)) 
+    .INIT(32'hA0A0C000)) 
     \s_axi_rdata_i[6]_i_1 
        (.I0(status_reg[1]),
         .I1(out[6]),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(enable_interrupts_reg),
-        .I4(\s_axi_rresp_i_reg[1] ),
-        .O(D[6]));
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\s_axi_rdata_i_reg[7] [6]));
   LUT4 #(
-    .INIT(16'h0800)) 
+    .INIT(16'h4000)) 
     \s_axi_rdata_i[7]_i_2 
-       (.I0(\s_axi_rresp_i_reg[1] ),
-        .I1(enable_interrupts_reg),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .I1(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I2(enable_interrupts_reg),
         .I3(out[7]),
-        .O(D[7]));
+        .O(\s_axi_rdata_i_reg[7] [7]));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
     .INIT(32'hF0880088)) 
     \s_axi_rresp_i[1]_i_1 
-       (.I0(tx_Buffer_Empty_Pre_reg),
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
         .I1(tx_Buffer_Full),
-        .I2(\s_axi_rresp_i_reg[1] ),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
         .I3(enable_interrupts_reg),
-        .I4(Q),
+        .I4(\INFERRED_GEN.cnt_i_reg[4] ),
         .O(ip2bus_error));
   LUT5 #(
-    .INIT(32'h08FF0808)) 
+    .INIT(32'h40FF4040)) 
     s_axi_rvalid_i_i_1
-       (.I0(s_axi_arready),
-        .I1(\state_reg[1]_1 [0]),
-        .I2(\state_reg[1]_1 [1]),
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(s_axi_arready),
         .I3(s_axi_rready),
         .I4(s_axi_rvalid_i_reg_0),
         .O(s_axi_rvalid_i_reg));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
-    .INIT(32'h0000FFFE)) 
+    .INIT(32'h0F0F0F0E)) 
     s_axi_wready_INST_0
-       (.I0(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
-        .I1(tx_Buffer_Empty_Pre_reg),
-        .I2(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
-        .I3(\s_axi_rresp_i_reg[1] ),
-        .I4(enable_interrupts_reg),
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I1(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I2(enable_interrupts_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 ),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
         .O(s_axi_awready));
   LUT5 #(
-    .INIT(32'hCEFFCEFC)) 
+    .INIT(32'hCFEFCFEC)) 
     \state[0]_i_1 
        (.I0(s_axi_awready),
         .I1(\state_reg[0] ),
-        .I2(\state_reg[1]_1 [0]),
-        .I3(\state_reg[1]_1 [1]),
+        .I2(Q[1]),
+        .I3(Q[0]),
         .I4(s_axi_arvalid),
-        .O(\state_reg[1] [0]));
+        .O(D[0]));
   LUT6 #(
-    .INIT(64'hCEFCCEFCCEFFCEFC)) 
+    .INIT(64'hCFECCFECCFEFCFEC)) 
     \state[1]_i_1 
        (.I0(s_axi_arready),
-        .I1(\state_reg[1]_0 ),
-        .I2(\state_reg[1]_1 [1]),
-        .I3(\state_reg[1]_1 [0]),
+        .I1(\state_reg[1] ),
+        .I2(Q[0]),
+        .I3(Q[1]),
         .I4(s_axi_wvalid),
         .I5(s_axi_arvalid),
-        .O(\state_reg[1] [1]));
+        .O(D[1]));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
-    .INIT(16'h8088)) 
+    .INIT(16'h8808)) 
     tx_Buffer_Empty_Pre_i_1
-       (.I0(\INFERRED_GEN.cnt_i_reg[4] ),
-        .I1(s_axi_aresetn),
-        .I2(enable_interrupts_reg),
-        .I3(tx_Buffer_Empty_Pre_reg),
-        .O(tx_Buffer_Empty_Pre_reg_0));
+       (.I0(s_axi_aresetn),
+        .I1(\INFERRED_GEN.cnt_i_reg[4]_0 ),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(enable_interrupts_reg),
+        .O(tx_Buffer_Empty_Pre_reg));
 endmodule
 
+(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module system_axi_uartlite_0_0_axi_lite_ipif
    (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
@@ -470,31 +573,31 @@ module system_axi_uartlite_0_0_axi_lite_ipif
     s_axi_rvalid,
     s_axi_bvalid,
     s_axi_bresp,
-    fifo_wr,
-    \INFERRED_GEN.cnt_i_reg[2] ,
-    \INFERRED_GEN.cnt_i_reg[2]_0 ,
-    s_axi_arready,
-    FIFO_Full_reg,
     reset_TX_FIFO,
     reset_RX_FIFO,
     s_axi_awready,
-    bus2ip_rdce,
-    enable_interrupts_reg,
-    tx_Buffer_Empty_Pre_reg,
+    s_axi_arready,
+    \INFERRED_GEN.cnt_i_reg[2] ,
     rx_Data_Present_Pre_reg,
+    FIFO_Full_reg,
+    bus2ip_rdce,
+    fifo_wr,
+    \INFERRED_GEN.cnt_i_reg[2]_0 ,
+    tx_Buffer_Empty_Pre_reg,
+    enable_interrupts_reg,
     s_axi_rdata,
     bus2ip_reset,
     s_axi_aclk,
-    tx_Buffer_Full,
+    s_axi_wdata,
+    s_axi_arvalid,
+    s_axi_aresetn,
     Q,
     out,
     rx_Buffer_Full,
     \INFERRED_GEN.cnt_i_reg[4] ,
+    tx_Buffer_Full,
     enable_interrupts,
     status_reg,
-    s_axi_arvalid,
-    s_axi_wdata,
-    s_axi_aresetn,
     s_axi_awvalid,
     s_axi_wvalid,
     s_axi_rready,
@@ -508,31 +611,31 @@ module system_axi_uartlite_0_0_axi_lite_ipif
   output s_axi_rvalid;
   output s_axi_bvalid;
   output [0:0]s_axi_bresp;
-  output fifo_wr;
-  output \INFERRED_GEN.cnt_i_reg[2] ;
-  output \INFERRED_GEN.cnt_i_reg[2]_0 ;
-  output s_axi_arready;
-  output FIFO_Full_reg;
   output reset_TX_FIFO;
   output reset_RX_FIFO;
   output s_axi_awready;
-  output [0:0]bus2ip_rdce;
-  output enable_interrupts_reg;
-  output tx_Buffer_Empty_Pre_reg;
+  output s_axi_arready;
+  output \INFERRED_GEN.cnt_i_reg[2] ;
   output rx_Data_Present_Pre_reg;
+  output FIFO_Full_reg;
+  output [0:0]bus2ip_rdce;
+  output fifo_wr;
+  output \INFERRED_GEN.cnt_i_reg[2]_0 ;
+  output tx_Buffer_Empty_Pre_reg;
+  output enable_interrupts_reg;
   output [7:0]s_axi_rdata;
   input bus2ip_reset;
   input s_axi_aclk;
-  input tx_Buffer_Full;
+  input [2:0]s_axi_wdata;
+  input s_axi_arvalid;
+  input s_axi_aresetn;
   input [0:0]Q;
   input [7:0]out;
   input rx_Buffer_Full;
   input [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
+  input tx_Buffer_Full;
   input enable_interrupts;
   input [1:0]status_reg;
-  input s_axi_arvalid;
-  input [2:0]s_axi_wdata;
-  input s_axi_aresetn;
   input s_axi_awvalid;
   input s_axi_wvalid;
   input s_axi_rready;
@@ -581,6 +684,8 @@ module system_axi_uartlite_0_0_axi_lite_ipif
 
   system_axi_uartlite_0_0_slave_attachment I_SLAVE_ATTACHMENT
        (.FIFO_Full_reg(FIFO_Full_reg),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
         .\INFERRED_GEN.cnt_i_reg[2] (\INFERRED_GEN.cnt_i_reg[2] ),
         .\INFERRED_GEN.cnt_i_reg[2]_0 (\INFERRED_GEN.cnt_i_reg[2]_0 ),
         .\INFERRED_GEN.cnt_i_reg[4] (\INFERRED_GEN.cnt_i_reg[4] ),
@@ -610,19 +715,18 @@ module system_axi_uartlite_0_0_axi_lite_ipif
         .s_axi_rdata(s_axi_rdata),
         .s_axi_rready(s_axi_rready),
         .s_axi_rresp(s_axi_rresp),
-        .\s_axi_rresp_i_reg[1]_0 (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
         .s_axi_rvalid(s_axi_rvalid),
         .s_axi_wdata(s_axi_wdata),
         .s_axi_wvalid(s_axi_wvalid),
         .status_reg(status_reg),
-        .tx_Buffer_Empty_Pre_reg(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
-        .tx_Buffer_Empty_Pre_reg_0(tx_Buffer_Empty_Pre_reg),
+        .tx_Buffer_Empty_Pre_reg(tx_Buffer_Empty_Pre_reg),
         .tx_Buffer_Full(tx_Buffer_Full));
 endmodule
 
 (* C_BAUDRATE = "115200" *) (* C_DATA_BITS = "8" *) (* C_FAMILY = "spartan7" *) 
 (* C_ODD_PARITY = "0" *) (* C_S_AXI_ACLK_FREQ_HZ = "100000000" *) (* C_S_AXI_ADDR_WIDTH = "4" *) 
-(* C_S_AXI_DATA_WIDTH = "32" *) (* C_USE_PARITY = "0" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* C_S_AXI_DATA_WIDTH = "32" *) (* C_USE_PARITY = "0" *) (* ORIG_REF_NAME = "axi_uartlite" *) 
+(* downgradeipidentifiedwarnings = "yes" *) 
 module system_axi_uartlite_0_0_axi_uartlite
    (s_axi_aclk,
     s_axi_aresetn,
@@ -671,11 +775,11 @@ module system_axi_uartlite_0_0_axi_uartlite
 
   wire \<const0> ;
   wire AXI_LITE_IPIF_I_n_11;
+  wire AXI_LITE_IPIF_I_n_12;
+  wire AXI_LITE_IPIF_I_n_13;
   wire AXI_LITE_IPIF_I_n_16;
   wire AXI_LITE_IPIF_I_n_17;
   wire AXI_LITE_IPIF_I_n_18;
-  wire AXI_LITE_IPIF_I_n_8;
-  wire AXI_LITE_IPIF_I_n_9;
   wire \I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ;
   wire \I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
   wire \I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
@@ -744,23 +848,23 @@ module system_axi_uartlite_0_0_axi_uartlite
   assign s_axi_wready = s_axi_awready;
   system_axi_uartlite_0_0_axi_lite_ipif AXI_LITE_IPIF_I
        (.Bus_RNW_reg(\I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ),
-        .FIFO_Full_reg(AXI_LITE_IPIF_I_n_11),
+        .FIFO_Full_reg(AXI_LITE_IPIF_I_n_13),
         .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
         .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
-        .\INFERRED_GEN.cnt_i_reg[2] (AXI_LITE_IPIF_I_n_8),
-        .\INFERRED_GEN.cnt_i_reg[2]_0 (AXI_LITE_IPIF_I_n_9),
+        .\INFERRED_GEN.cnt_i_reg[2] (AXI_LITE_IPIF_I_n_11),
+        .\INFERRED_GEN.cnt_i_reg[2]_0 (AXI_LITE_IPIF_I_n_16),
         .\INFERRED_GEN.cnt_i_reg[4] (tx_Buffer_Empty),
         .Q(\UARTLITE_RX_I/rx_Data_Empty ),
         .bus2ip_rdce(bus2ip_rdce),
         .bus2ip_reset(bus2ip_reset),
         .enable_interrupts(enable_interrupts),
-        .enable_interrupts_reg(AXI_LITE_IPIF_I_n_16),
+        .enable_interrupts_reg(AXI_LITE_IPIF_I_n_18),
         .fifo_wr(\UARTLITE_TX_I/fifo_wr ),
         .out({rx_Data[0],rx_Data[1],rx_Data[2],rx_Data[3],rx_Data[4],rx_Data[5],rx_Data[6],rx_Data[7]}),
         .reset_RX_FIFO(reset_RX_FIFO),
         .reset_TX_FIFO(reset_TX_FIFO),
         .rx_Buffer_Full(rx_Buffer_Full),
-        .rx_Data_Present_Pre_reg(AXI_LITE_IPIF_I_n_18),
+        .rx_Data_Present_Pre_reg(AXI_LITE_IPIF_I_n_12),
         .s_axi_aclk(s_axi_aclk),
         .s_axi_araddr(s_axi_araddr[3:2]),
         .s_axi_aresetn(s_axi_aresetn),
@@ -785,16 +889,16 @@ module system_axi_uartlite_0_0_axi_uartlite
        (.G(\<const0> ));
   system_axi_uartlite_0_0_uartlite_core UARTLITE_CORE_I
        (.Bus_RNW_reg(\I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ),
-        .Bus_RNW_reg_reg(AXI_LITE_IPIF_I_n_9),
-        .FIFO_Full_reg(\UARTLITE_RX_I/rx_Data_Empty ),
+        .Bus_RNW_reg_reg(AXI_LITE_IPIF_I_n_11),
         .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
-        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] (AXI_LITE_IPIF_I_n_18),
-        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 (AXI_LITE_IPIF_I_n_11),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] (AXI_LITE_IPIF_I_n_13),
         .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
-        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] (AXI_LITE_IPIF_I_n_8),
-        .\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] (AXI_LITE_IPIF_I_n_16),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] (AXI_LITE_IPIF_I_n_16),
+        .\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] (AXI_LITE_IPIF_I_n_18),
+        .\INFERRED_GEN.cnt_i_reg[2] (tx_Buffer_Empty),
         .\INFERRED_GEN.cnt_i_reg[4] (AXI_LITE_IPIF_I_n_17),
-        .Q(tx_Buffer_Empty),
+        .\INFERRED_GEN.cnt_i_reg[4]_0 (AXI_LITE_IPIF_I_n_12),
+        .Q(\UARTLITE_RX_I/rx_Data_Empty ),
         .bus2ip_rdce(bus2ip_rdce),
         .bus2ip_reset(bus2ip_reset),
         .enable_interrupts(enable_interrupts),
@@ -813,6 +917,7 @@ module system_axi_uartlite_0_0_axi_uartlite
         .tx_Buffer_Full(tx_Buffer_Full));
 endmodule
 
+(* ORIG_REF_NAME = "baudrate" *) 
 module system_axi_uartlite_0_0_baudrate
    (en_16x_Baud,
     SR,
@@ -945,6 +1050,7 @@ module system_axi_uartlite_0_0_baudrate
         .R(SR));
 endmodule
 
+(* ORIG_REF_NAME = "cdc_sync" *) 
 module system_axi_uartlite_0_0_cdc_sync
    (p_26_out,
     scndry_out,
@@ -1030,6 +1136,7 @@ module system_axi_uartlite_0_0_cdc_sync
         .O(p_26_out));
 endmodule
 
+(* ORIG_REF_NAME = "cntr_incr_decr_addn_f" *) 
 module system_axi_uartlite_0_0_cntr_incr_decr_addn_f
    (SS,
     Q,
@@ -1085,7 +1192,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f
 
   LUT6 #(
     .INIT(64'h0000000004090000)) 
-    FIFO_Full_i_1
+    FIFO_Full_i_1__0
        (.I0(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ),
         .I1(Q[0]),
         .I2(Q[4]),
@@ -1101,7 +1208,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f
         .O(FIFO_Full_i_2__0_n_0));
   LUT6 #(
     .INIT(64'hBBB4BBBB444B4444)) 
-    \INFERRED_GEN.cnt_i[0]_i_1 
+    \INFERRED_GEN.cnt_i[0]_i_1__0 
        (.I0(Q[4]),
         .I1(fifo_Read),
         .I2(tx_Buffer_Full),
@@ -1112,7 +1219,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f
   (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
     .INIT(32'hAA9A65AA)) 
-    \INFERRED_GEN.cnt_i[1]_i_1 
+    \INFERRED_GEN.cnt_i[1]_i_1__0 
        (.I0(Q[1]),
         .I1(Q[4]),
         .I2(fifo_Read),
@@ -1121,7 +1228,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f
         .O(addr_i_p1[1]));
   LUT6 #(
     .INIT(64'hF4FF0B00FFBF0040)) 
-    \INFERRED_GEN.cnt_i[2]_i_1 
+    \INFERRED_GEN.cnt_i[2]_i_1__0 
        (.I0(Q[4]),
         .I1(fifo_Read),
         .I2(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ),
@@ -1131,7 +1238,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f
         .O(addr_i_p1[2]));
   LUT6 #(
     .INIT(64'hAAAA6AAAAAA9AAAA)) 
-    \INFERRED_GEN.cnt_i[3]_i_1 
+    \INFERRED_GEN.cnt_i[3]_i_1__0 
        (.I0(Q[3]),
         .I1(Q[1]),
         .I2(Q[2]),
@@ -1154,7 +1261,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f
         .O(SS));
   LUT6 #(
     .INIT(64'hF0F0FAFAF003F0F0)) 
-    \INFERRED_GEN.cnt_i[4]_i_2 
+    \INFERRED_GEN.cnt_i[4]_i_2__0 
        (.I0(\INFERRED_GEN.cnt_i[4]_i_3__0_n_0 ),
         .I1(fifo_Read),
         .I2(Q[4]),
@@ -1284,7 +1391,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f_2
 
   LUT6 #(
     .INIT(64'h0000000009040000)) 
-    FIFO_Full_i_1__0
+    FIFO_Full_i_1
        (.I0(\INFERRED_GEN.cnt_i[4]_i_6_n_0 ),
         .I1(Q[0]),
         .I2(Q[4]),
@@ -1301,7 +1408,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f_2
         .O(FIFO_Full_i_2_n_0));
   LUT5 #(
     .INIT(32'hF70808F7)) 
-    \INFERRED_GEN.cnt_i[0]_i_1__0 
+    \INFERRED_GEN.cnt_i[0]_i_1 
        (.I0(Bus_RNW_reg),
         .I1(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
         .I2(Q[4]),
@@ -1310,7 +1417,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f_2
         .O(addr_i_p1[0]));
   LUT6 #(
     .INIT(64'hAAAAAA6A5595AAAA)) 
-    \INFERRED_GEN.cnt_i[1]_i_1__0 
+    \INFERRED_GEN.cnt_i[1]_i_1 
        (.I0(Q[1]),
         .I1(Bus_RNW_reg),
         .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
@@ -1321,7 +1428,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f_2
   (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'hFE017F80)) 
-    \INFERRED_GEN.cnt_i[2]_i_1__0 
+    \INFERRED_GEN.cnt_i[2]_i_1 
        (.I0(Q[0]),
         .I1(Bus_RNW_reg_reg),
         .I2(Q[1]),
@@ -1330,7 +1437,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f_2
         .O(addr_i_p1[2]));
   LUT6 #(
     .INIT(64'hF0F0F0E178F0F0F0)) 
-    \INFERRED_GEN.cnt_i[3]_i_1__0 
+    \INFERRED_GEN.cnt_i[3]_i_1 
        (.I0(Q[0]),
         .I1(Bus_RNW_reg_reg),
         .I2(Q[3]),
@@ -1346,7 +1453,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f_2
         .O(SS));
   LUT6 #(
     .INIT(64'hF0F0F4F4F00AF0F0)) 
-    \INFERRED_GEN.cnt_i[4]_i_2__0 
+    \INFERRED_GEN.cnt_i[4]_i_2 
        (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ),
         .I1(\INFERRED_GEN.cnt_i[4]_i_4_n_0 ),
         .I2(Q[4]),
@@ -1418,6 +1525,7 @@ module system_axi_uartlite_0_0_cntr_incr_decr_addn_f_2
         .O(Interrupt0));
 endmodule
 
+(* ORIG_REF_NAME = "dynshreg_f" *) 
 module system_axi_uartlite_0_0_dynshreg_f
    (mux_Out,
     p_4_in,
@@ -1461,8 +1569,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[0]),
-        .Q(fifo_DOut[7]));
+        .D(s_axi_wdata[7]),
+        .Q(fifo_DOut[0]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][1]_srl16 " *) 
   SRL16E #(
@@ -1474,8 +1582,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[1]),
-        .Q(fifo_DOut[6]));
+        .D(s_axi_wdata[6]),
+        .Q(fifo_DOut[1]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][2]_srl16 " *) 
   SRL16E #(
@@ -1487,8 +1595,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[2]),
-        .Q(fifo_DOut[5]));
+        .D(s_axi_wdata[5]),
+        .Q(fifo_DOut[2]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][3]_srl16 " *) 
   SRL16E #(
@@ -1500,8 +1608,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[3]),
-        .Q(fifo_DOut[4]));
+        .D(s_axi_wdata[4]),
+        .Q(fifo_DOut[3]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][4]_srl16 " *) 
   SRL16E #(
@@ -1513,8 +1621,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[4]),
-        .Q(fifo_DOut[3]));
+        .D(s_axi_wdata[3]),
+        .Q(fifo_DOut[4]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][5]_srl16 " *) 
   SRL16E #(
@@ -1526,8 +1634,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[5]),
-        .Q(fifo_DOut[2]));
+        .D(s_axi_wdata[2]),
+        .Q(fifo_DOut[5]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][6]_srl16 " *) 
   SRL16E #(
@@ -1539,8 +1647,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[6]),
-        .Q(fifo_DOut[1]));
+        .D(s_axi_wdata[1]),
+        .Q(fifo_DOut[6]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16 " *) 
   SRL16E #(
@@ -1552,8 +1660,8 @@ module system_axi_uartlite_0_0_dynshreg_f
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(s_axi_wdata[7]),
-        .Q(fifo_DOut[0]));
+        .D(s_axi_wdata[0]),
+        .Q(fifo_DOut[7]));
   LUT4 #(
     .INIT(16'hFFFE)) 
     serial_Data_i_1
@@ -1637,15 +1745,8 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[7]),
-        .Q(out[0]));
-  LUT3 #(
-    .INIT(8'h20)) 
-    \INFERRED_GEN.data_reg[15][0]_srl16_i_1__0 
-       (.I0(valid_rx),
-        .I1(FIFO_Full_reg),
-        .I2(fifo_Write),
-        .O(fifo_wr));
+        .D(in[0]),
+        .Q(out[7]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][1]_srl16 " *) 
   SRL16E #(
@@ -1657,8 +1758,8 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[6]),
-        .Q(out[1]));
+        .D(in[1]),
+        .Q(out[6]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][2]_srl16 " *) 
   SRL16E #(
@@ -1670,8 +1771,8 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[5]),
-        .Q(out[2]));
+        .D(in[2]),
+        .Q(out[5]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][3]_srl16 " *) 
   SRL16E #(
@@ -1683,8 +1784,8 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[4]),
-        .Q(out[3]));
+        .D(in[3]),
+        .Q(out[4]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][4]_srl16 " *) 
   SRL16E #(
@@ -1696,8 +1797,8 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[3]),
-        .Q(out[4]));
+        .D(in[4]),
+        .Q(out[3]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][5]_srl16 " *) 
   SRL16E #(
@@ -1709,8 +1810,8 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[2]),
-        .Q(out[5]));
+        .D(in[5]),
+        .Q(out[2]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][6]_srl16 " *) 
   SRL16E #(
@@ -1722,8 +1823,8 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[1]),
-        .Q(out[6]));
+        .D(in[6]),
+        .Q(out[1]));
   (* srl_bus_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15] " *) 
   (* srl_name = "U0/\UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16 " *) 
   SRL16E #(
@@ -1735,10 +1836,18 @@ module system_axi_uartlite_0_0_dynshreg_f_3
         .A3(Q[3]),
         .CE(fifo_wr),
         .CLK(s_axi_aclk),
-        .D(in[0]),
-        .Q(out[7]));
+        .D(in[7]),
+        .Q(out[0]));
+  LUT3 #(
+    .INIT(8'h20)) 
+    \INFERRED_GEN.data_reg[15][7]_srl16_i_1__0 
+       (.I0(valid_rx),
+        .I1(FIFO_Full_reg),
+        .I2(fifo_Write),
+        .O(fifo_wr));
 endmodule
 
+(* ORIG_REF_NAME = "dynshreg_i_f" *) 
 module system_axi_uartlite_0_0_dynshreg_i_f
    (p_20_out,
     \SERIAL_TO_PARALLEL[2].fifo_din_reg[2] ,
@@ -1760,8 +1869,8 @@ module system_axi_uartlite_0_0_dynshreg_i_f
     s_axi_aresetn,
     stop_Bit_Position_reg_0,
     scndry_out,
-    clr_Status,
     status_reg,
+    clr_Status,
     valid_rx,
     frame_err_ocrd,
     running_reg_0);
@@ -1785,8 +1894,8 @@ module system_axi_uartlite_0_0_dynshreg_i_f
   input s_axi_aresetn;
   input stop_Bit_Position_reg_0;
   input scndry_out;
-  input clr_Status;
   input [0:0]status_reg;
+  input clr_Status;
   input valid_rx;
   input frame_err_ocrd;
   input running_reg_0;
@@ -1952,13 +2061,13 @@ module system_axi_uartlite_0_0_dynshreg_i_f
         .I4(running_reg_0),
         .O(running_reg));
   LUT5 #(
-    .INIT(32'h0F000200)) 
+    .INIT(32'h0000F200)) 
     \status_reg[1]_i_1 
        (.I0(\status_reg[1]_i_2_n_0 ),
         .I1(scndry_out),
-        .I2(clr_Status),
+        .I2(status_reg),
         .I3(s_axi_aresetn),
-        .I4(status_reg),
+        .I4(clr_Status),
         .O(status_reg_reg0));
   (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
@@ -2026,27 +2135,24 @@ module system_axi_uartlite_0_0_dynshreg_i_f__parameterized0
         .O(tx_Data_Enable_reg));
 endmodule
 
+(* ORIG_REF_NAME = "pselect_f" *) 
 module system_axi_uartlite_0_0_pselect_f
    (ce_expnd_i_3,
     \bus2ip_addr_i_reg[2] ,
-    start2,
     \bus2ip_addr_i_reg[3] );
   output ce_expnd_i_3;
   input \bus2ip_addr_i_reg[2] ;
-  input start2;
   input \bus2ip_addr_i_reg[3] ;
 
   wire \bus2ip_addr_i_reg[2] ;
   wire \bus2ip_addr_i_reg[3] ;
   wire ce_expnd_i_3;
-  wire start2;
 
-  LUT3 #(
-    .INIT(8'h04)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     CS
        (.I0(\bus2ip_addr_i_reg[2] ),
-        .I1(start2),
-        .I2(\bus2ip_addr_i_reg[3] ),
+        .I1(\bus2ip_addr_i_reg[3] ),
         .O(ce_expnd_i_3));
 endmodule
 
@@ -2054,98 +2160,95 @@ endmodule
 module system_axi_uartlite_0_0_pselect_f__parameterized1
    (ce_expnd_i_1,
     \bus2ip_addr_i_reg[3] ,
-    start2,
     \bus2ip_addr_i_reg[2] );
   output ce_expnd_i_1;
   input \bus2ip_addr_i_reg[3] ;
-  input start2;
   input \bus2ip_addr_i_reg[2] ;
 
   wire \bus2ip_addr_i_reg[2] ;
   wire \bus2ip_addr_i_reg[3] ;
   wire ce_expnd_i_1;
-  wire start2;
 
-  LUT3 #(
-    .INIT(8'h08)) 
+  LUT2 #(
+    .INIT(4'h2)) 
     CS
        (.I0(\bus2ip_addr_i_reg[3] ),
-        .I1(start2),
-        .I2(\bus2ip_addr_i_reg[2] ),
+        .I1(\bus2ip_addr_i_reg[2] ),
         .O(ce_expnd_i_1));
 endmodule
 
+(* ORIG_REF_NAME = "slave_attachment" *) 
 module system_axi_uartlite_0_0_slave_attachment
-   (tx_Buffer_Empty_Pre_reg,
-    \s_axi_rresp_i_reg[1]_0 ,
+   (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ,
     s_axi_rresp,
     enable_interrupts_reg,
     s_axi_rvalid,
     s_axi_bvalid,
     s_axi_bresp,
-    fifo_wr,
-    \INFERRED_GEN.cnt_i_reg[2] ,
-    \INFERRED_GEN.cnt_i_reg[2]_0 ,
-    s_axi_arready,
-    FIFO_Full_reg,
     reset_TX_FIFO,
     reset_RX_FIFO,
     s_axi_awready,
-    bus2ip_rdce,
-    enable_interrupts_reg_0,
-    tx_Buffer_Empty_Pre_reg_0,
+    s_axi_arready,
+    \INFERRED_GEN.cnt_i_reg[2] ,
     rx_Data_Present_Pre_reg,
+    FIFO_Full_reg,
+    bus2ip_rdce,
+    fifo_wr,
+    \INFERRED_GEN.cnt_i_reg[2]_0 ,
+    tx_Buffer_Empty_Pre_reg,
+    enable_interrupts_reg_0,
     s_axi_rdata,
     bus2ip_reset,
     s_axi_aclk,
-    tx_Buffer_Full,
+    s_axi_wdata,
+    s_axi_arvalid,
+    s_axi_aresetn,
     Q,
     out,
     rx_Buffer_Full,
     \INFERRED_GEN.cnt_i_reg[4] ,
+    tx_Buffer_Full,
     enable_interrupts,
     status_reg,
-    s_axi_arvalid,
-    s_axi_wdata,
-    s_axi_aresetn,
     s_axi_awvalid,
     s_axi_wvalid,
     s_axi_rready,
     s_axi_bready,
     s_axi_awaddr,
     s_axi_araddr);
-  output tx_Buffer_Empty_Pre_reg;
-  output \s_axi_rresp_i_reg[1]_0 ;
+  output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
+  output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
   output [0:0]s_axi_rresp;
   output enable_interrupts_reg;
   output s_axi_rvalid;
   output s_axi_bvalid;
   output [0:0]s_axi_bresp;
-  output fifo_wr;
-  output \INFERRED_GEN.cnt_i_reg[2] ;
-  output \INFERRED_GEN.cnt_i_reg[2]_0 ;
-  output s_axi_arready;
-  output FIFO_Full_reg;
   output reset_TX_FIFO;
   output reset_RX_FIFO;
   output s_axi_awready;
-  output [0:0]bus2ip_rdce;
-  output enable_interrupts_reg_0;
-  output tx_Buffer_Empty_Pre_reg_0;
+  output s_axi_arready;
+  output \INFERRED_GEN.cnt_i_reg[2] ;
   output rx_Data_Present_Pre_reg;
+  output FIFO_Full_reg;
+  output [0:0]bus2ip_rdce;
+  output fifo_wr;
+  output \INFERRED_GEN.cnt_i_reg[2]_0 ;
+  output tx_Buffer_Empty_Pre_reg;
+  output enable_interrupts_reg_0;
   output [7:0]s_axi_rdata;
   input bus2ip_reset;
   input s_axi_aclk;
-  input tx_Buffer_Full;
+  input [2:0]s_axi_wdata;
+  input s_axi_arvalid;
+  input s_axi_aresetn;
   input [0:0]Q;
   input [7:0]out;
   input rx_Buffer_Full;
   input [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
+  input tx_Buffer_Full;
   input enable_interrupts;
   input [1:0]status_reg;
-  input s_axi_arvalid;
-  input [2:0]s_axi_wdata;
-  input s_axi_aresetn;
   input s_axi_awvalid;
   input s_axi_wvalid;
   input s_axi_rready;
@@ -2154,14 +2257,16 @@ module system_axi_uartlite_0_0_slave_attachment
   input [1:0]s_axi_araddr;
 
   wire FIFO_Full_reg;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
   wire \INFERRED_GEN.cnt_i_reg[2] ;
   wire \INFERRED_GEN.cnt_i_reg[2]_0 ;
   wire [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
-  wire I_DECODER_n_15;
-  wire I_DECODER_n_16;
-  wire I_DECODER_n_25;
   wire I_DECODER_n_26;
   wire I_DECODER_n_27;
+  wire I_DECODER_n_28;
+  wire I_DECODER_n_5;
+  wire I_DECODER_n_6;
   wire [0:0]Q;
   wire [0:7]SIn_DBus;
   wire \bus2ip_addr_i[2]_i_1_n_0 ;
@@ -2199,7 +2304,6 @@ module system_axi_uartlite_0_0_slave_attachment
   wire s_axi_rdata_i;
   wire s_axi_rready;
   wire [0:0]s_axi_rresp;
-  wire \s_axi_rresp_i_reg[1]_0 ;
   wire s_axi_rvalid;
   wire [2:0]s_axi_wdata;
   wire s_axi_wvalid;
@@ -2211,16 +2315,18 @@ module system_axi_uartlite_0_0_slave_attachment
   wire \state[1]_i_3_n_0 ;
   wire [1:0]status_reg;
   wire tx_Buffer_Empty_Pre_reg;
-  wire tx_Buffer_Empty_Pre_reg_0;
   wire tx_Buffer_Full;
 
   system_axi_uartlite_0_0_address_decoder I_DECODER
-       (.D({SIn_DBus[0],SIn_DBus[1],SIn_DBus[2],SIn_DBus[3],SIn_DBus[4],SIn_DBus[5],SIn_DBus[6],SIn_DBus[7]}),
+       (.D({I_DECODER_n_5,I_DECODER_n_6}),
         .FIFO_Full_reg(FIFO_Full_reg),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_1 (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
         .\INFERRED_GEN.cnt_i_reg[2] (\INFERRED_GEN.cnt_i_reg[2] ),
         .\INFERRED_GEN.cnt_i_reg[2]_0 (\INFERRED_GEN.cnt_i_reg[2]_0 ),
-        .\INFERRED_GEN.cnt_i_reg[4] (\INFERRED_GEN.cnt_i_reg[4] ),
-        .Q(Q),
+        .\INFERRED_GEN.cnt_i_reg[4] (Q),
+        .\INFERRED_GEN.cnt_i_reg[4]_0 (\INFERRED_GEN.cnt_i_reg[4] ),
+        .Q(state),
         .\bus2ip_addr_i_reg[2] (\bus2ip_addr_i_reg_n_0_[2] ),
         .\bus2ip_addr_i_reg[3] (\bus2ip_addr_i_reg_n_0_[3] ),
         .bus2ip_rdce(bus2ip_rdce),
@@ -2242,23 +2348,20 @@ module system_axi_uartlite_0_0_slave_attachment
         .s_axi_awready(s_axi_awready),
         .s_axi_bready(s_axi_bready),
         .s_axi_bresp(s_axi_bresp),
-        .\s_axi_bresp_i_reg[1] (I_DECODER_n_27),
-        .s_axi_bvalid_i_reg(I_DECODER_n_26),
+        .\s_axi_bresp_i_reg[1] (I_DECODER_n_28),
+        .s_axi_bvalid_i_reg(I_DECODER_n_27),
         .s_axi_bvalid_i_reg_0(s_axi_bvalid),
+        .\s_axi_rdata_i_reg[7] ({SIn_DBus[0],SIn_DBus[1],SIn_DBus[2],SIn_DBus[3],SIn_DBus[4],SIn_DBus[5],SIn_DBus[6],SIn_DBus[7]}),
         .s_axi_rready(s_axi_rready),
-        .\s_axi_rresp_i_reg[1] (\s_axi_rresp_i_reg[1]_0 ),
-        .s_axi_rvalid_i_reg(I_DECODER_n_25),
+        .s_axi_rvalid_i_reg(I_DECODER_n_26),
         .s_axi_rvalid_i_reg_0(s_axi_rvalid),
         .s_axi_wdata(s_axi_wdata),
         .s_axi_wvalid(\state[1]_i_3_n_0 ),
         .start2(start2),
         .\state_reg[0] (\state[0]_i_2_n_0 ),
-        .\state_reg[1] ({I_DECODER_n_15,I_DECODER_n_16}),
-        .\state_reg[1]_0 (\state[1]_i_2_n_0 ),
-        .\state_reg[1]_1 (state),
+        .\state_reg[1] (\state[1]_i_2_n_0 ),
         .status_reg(status_reg),
         .tx_Buffer_Empty_Pre_reg(tx_Buffer_Empty_Pre_reg),
-        .tx_Buffer_Empty_Pre_reg_0(tx_Buffer_Empty_Pre_reg_0),
         .tx_Buffer_Full(tx_Buffer_Full));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
@@ -2325,7 +2428,7 @@ module system_axi_uartlite_0_0_slave_attachment
     \s_axi_bresp_i_reg[1] 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(I_DECODER_n_27),
+        .D(I_DECODER_n_28),
         .Q(s_axi_bresp),
         .R(rst));
   FDRE #(
@@ -2333,7 +2436,7 @@ module system_axi_uartlite_0_0_slave_attachment
     s_axi_bvalid_i_reg
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(I_DECODER_n_26),
+        .D(I_DECODER_n_27),
         .Q(s_axi_bvalid),
         .R(rst));
   LUT2 #(
@@ -2419,7 +2522,7 @@ module system_axi_uartlite_0_0_slave_attachment
     s_axi_rvalid_i_reg
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(I_DECODER_n_25),
+        .D(I_DECODER_n_26),
         .Q(s_axi_rvalid),
         .R(rst));
   (* SOFT_HLUTNM = "soft_lutpair9" *) 
@@ -2465,17 +2568,18 @@ module system_axi_uartlite_0_0_slave_attachment
   FDRE \state_reg[0] 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(I_DECODER_n_16),
+        .D(I_DECODER_n_6),
         .Q(state[0]),
         .R(rst));
   FDRE \state_reg[1] 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(I_DECODER_n_15),
+        .D(I_DECODER_n_5),
         .Q(state[1]),
         .R(rst));
 endmodule
 
+(* ORIG_REF_NAME = "srl_fifo_f" *) 
 module system_axi_uartlite_0_0_srl_fifo_f
    (tx_Buffer_Full,
     mux_Out,
@@ -2562,8 +2666,8 @@ endmodule
 module system_axi_uartlite_0_0_srl_fifo_f_0
    (\status_reg_reg[2] ,
     Q,
-    Interrupt0,
     \status_reg_reg[2]_0 ,
+    Interrupt0,
     out,
     s_axi_aclk,
     reset_RX_FIFO_reg,
@@ -2572,19 +2676,19 @@ module system_axi_uartlite_0_0_srl_fifo_f_0
     Bus_RNW_reg,
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
     Bus_RNW_reg_reg,
-    valid_rx,
+    status_reg,
     fifo_Write,
+    clr_Status,
+    valid_rx,
     rx_Data_Present_Pre,
     enable_interrupts,
     \INFERRED_GEN.cnt_i_reg[4] ,
     tx_Buffer_Empty_Pre,
-    status_reg,
-    clr_Status,
     in);
   output \status_reg_reg[2] ;
   output [0:0]Q;
-  output Interrupt0;
   output \status_reg_reg[2]_0 ;
+  output Interrupt0;
   output [7:0]out;
   input s_axi_aclk;
   input reset_RX_FIFO_reg;
@@ -2593,14 +2697,14 @@ module system_axi_uartlite_0_0_srl_fifo_f_0
   input Bus_RNW_reg;
   input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
   input Bus_RNW_reg_reg;
-  input valid_rx;
+  input [0:0]status_reg;
   input fifo_Write;
+  input clr_Status;
+  input valid_rx;
   input rx_Data_Present_Pre;
   input enable_interrupts;
   input [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
   input tx_Buffer_Empty_Pre;
-  input [0:0]status_reg;
-  input clr_Status;
   input [0:7]in;
 
   wire Bus_RNW_reg;
@@ -2649,6 +2753,7 @@ module system_axi_uartlite_0_0_srl_fifo_f_0
         .valid_rx(valid_rx));
 endmodule
 
+(* ORIG_REF_NAME = "srl_fifo_rbu_f" *) 
 module system_axi_uartlite_0_0_srl_fifo_rbu_f
    (tx_Buffer_Full,
     mux_Out,
@@ -2752,8 +2857,8 @@ endmodule
 module system_axi_uartlite_0_0_srl_fifo_rbu_f_1
    (\status_reg_reg[2] ,
     Q,
-    Interrupt0,
     \status_reg_reg[2]_0 ,
+    Interrupt0,
     out,
     s_axi_aclk,
     reset_RX_FIFO_reg,
@@ -2762,19 +2867,19 @@ module system_axi_uartlite_0_0_srl_fifo_rbu_f_1
     Bus_RNW_reg,
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
     Bus_RNW_reg_reg,
-    valid_rx,
+    status_reg,
     fifo_Write,
+    clr_Status,
+    valid_rx,
     rx_Data_Present_Pre,
     enable_interrupts,
     \INFERRED_GEN.cnt_i_reg[4] ,
     tx_Buffer_Empty_Pre,
-    status_reg,
-    clr_Status,
     in);
   output \status_reg_reg[2] ;
   output [0:0]Q;
-  output Interrupt0;
   output \status_reg_reg[2]_0 ;
+  output Interrupt0;
   output [7:0]out;
   input s_axi_aclk;
   input reset_RX_FIFO_reg;
@@ -2783,14 +2888,14 @@ module system_axi_uartlite_0_0_srl_fifo_rbu_f_1
   input Bus_RNW_reg;
   input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
   input Bus_RNW_reg_reg;
-  input valid_rx;
+  input [0:0]status_reg;
   input fifo_Write;
+  input clr_Status;
+  input valid_rx;
   input rx_Data_Present_Pre;
   input enable_interrupts;
   input [0:0]\INFERRED_GEN.cnt_i_reg[4] ;
   input tx_Buffer_Empty_Pre;
-  input [0:0]status_reg;
-  input clr_Status;
   input [0:7]in;
 
   wire Bus_RNW_reg;
@@ -2855,121 +2960,17 @@ module system_axi_uartlite_0_0_srl_fifo_rbu_f_1
         .Q(\status_reg_reg[2] ),
         .R(RX_FIFO_Reset));
   LUT5 #(
-    .INIT(32'h0000EA00)) 
+    .INIT(32'h00EA0000)) 
     \status_reg[2]_i_1 
        (.I0(status_reg),
         .I1(fifo_Write),
         .I2(\status_reg_reg[2] ),
-        .I3(s_axi_aresetn),
-        .I4(clr_Status),
+        .I3(clr_Status),
+        .I4(s_axi_aresetn),
         .O(\status_reg_reg[2]_0 ));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "system_axi_uartlite_0_0,axi_uartlite,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_uartlite,Vivado 2017.2" *) 
-(* NotValidForBitStream *)
-module system_axi_uartlite_0_0
-   (s_axi_aclk,
-    s_axi_aresetn,
-    interrupt,
-    s_axi_awaddr,
-    s_axi_awvalid,
-    s_axi_awready,
-    s_axi_wdata,
-    s_axi_wstrb,
-    s_axi_wvalid,
-    s_axi_wready,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_bready,
-    s_axi_araddr,
-    s_axi_arvalid,
-    s_axi_arready,
-    s_axi_rdata,
-    s_axi_rresp,
-    s_axi_rvalid,
-    s_axi_rready,
-    rx,
-    tx);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 ACLK CLK" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 ARESETN RST" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT" *) output interrupt;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) input [3:0]s_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [3:0]s_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RxD" *) input rx;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART TxD" *) output tx;
-
-  wire interrupt;
-  wire rx;
-  wire s_axi_aclk;
-  wire [3:0]s_axi_araddr;
-  wire s_axi_aresetn;
-  wire s_axi_arready;
-  wire s_axi_arvalid;
-  wire [3:0]s_axi_awaddr;
-  wire s_axi_awready;
-  wire s_axi_awvalid;
-  wire s_axi_bready;
-  wire [1:0]s_axi_bresp;
-  wire s_axi_bvalid;
-  wire [31:0]s_axi_rdata;
-  wire s_axi_rready;
-  wire [1:0]s_axi_rresp;
-  wire s_axi_rvalid;
-  wire [31:0]s_axi_wdata;
-  wire s_axi_wready;
-  wire [3:0]s_axi_wstrb;
-  wire s_axi_wvalid;
-  wire tx;
-
-  (* C_BAUDRATE = "115200" *) 
-  (* C_DATA_BITS = "8" *) 
-  (* C_FAMILY = "spartan7" *) 
-  (* C_ODD_PARITY = "0" *) 
-  (* C_S_AXI_ACLK_FREQ_HZ = "100000000" *) 
-  (* C_S_AXI_ADDR_WIDTH = "4" *) 
-  (* C_S_AXI_DATA_WIDTH = "32" *) 
-  (* C_USE_PARITY = "0" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  system_axi_uartlite_0_0_axi_uartlite U0
-       (.interrupt(interrupt),
-        .rx(rx),
-        .s_axi_aclk(s_axi_aclk),
-        .s_axi_araddr(s_axi_araddr),
-        .s_axi_aresetn(s_axi_aresetn),
-        .s_axi_arready(s_axi_arready),
-        .s_axi_arvalid(s_axi_arvalid),
-        .s_axi_awaddr(s_axi_awaddr),
-        .s_axi_awready(s_axi_awready),
-        .s_axi_awvalid(s_axi_awvalid),
-        .s_axi_bready(s_axi_bready),
-        .s_axi_bresp(s_axi_bresp),
-        .s_axi_bvalid(s_axi_bvalid),
-        .s_axi_rdata(s_axi_rdata),
-        .s_axi_rready(s_axi_rready),
-        .s_axi_rresp(s_axi_rresp),
-        .s_axi_rvalid(s_axi_rvalid),
-        .s_axi_wdata(s_axi_wdata),
-        .s_axi_wready(s_axi_wready),
-        .s_axi_wstrb(s_axi_wstrb),
-        .s_axi_wvalid(s_axi_wvalid),
-        .tx(tx));
-endmodule
-
+(* ORIG_REF_NAME = "uartlite_core" *) 
 module system_axi_uartlite_0_0_uartlite_core
    (status_reg,
     bus2ip_reset,
@@ -2979,7 +2980,7 @@ module system_axi_uartlite_0_0_uartlite_core
     interrupt,
     enable_interrupts,
     Q,
-    FIFO_Full_reg,
+    \INFERRED_GEN.cnt_i_reg[2] ,
     out,
     s_axi_aclk,
     reset_TX_FIFO,
@@ -2987,14 +2988,14 @@ module system_axi_uartlite_0_0_uartlite_core
     bus2ip_rdce,
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ,
     \INFERRED_GEN.cnt_i_reg[4] ,
-    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ,
+    \INFERRED_GEN.cnt_i_reg[4]_0 ,
     s_axi_aresetn,
-    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ,
     Bus_RNW_reg,
-    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
-    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ,
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
     Bus_RNW_reg_reg,
+    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ,
+    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
     rx,
     fifo_wr,
     s_axi_wdata);
@@ -3006,7 +3007,7 @@ module system_axi_uartlite_0_0_uartlite_core
   output interrupt;
   output enable_interrupts;
   output [0:0]Q;
-  output [0:0]FIFO_Full_reg;
+  output [0:0]\INFERRED_GEN.cnt_i_reg[2] ;
   output [7:0]out;
   input s_axi_aclk;
   input reset_TX_FIFO;
@@ -3014,31 +3015,31 @@ module system_axi_uartlite_0_0_uartlite_core
   input [0:0]bus2ip_rdce;
   input \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
   input \INFERRED_GEN.cnt_i_reg[4] ;
-  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
+  input \INFERRED_GEN.cnt_i_reg[4]_0 ;
   input s_axi_aresetn;
-  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ;
+  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
   input Bus_RNW_reg;
-  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
-  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
   input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
   input Bus_RNW_reg_reg;
+  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ;
+  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
   input rx;
   input fifo_wr;
   input [7:0]s_axi_wdata;
 
   wire Bus_RNW_reg;
   wire Bus_RNW_reg_reg;
-  wire [0:0]FIFO_Full_reg;
   wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
   wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
-  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
   wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
   wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ;
   wire \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
+  wire [0:0]\INFERRED_GEN.cnt_i_reg[2] ;
   wire \INFERRED_GEN.cnt_i_reg[4] ;
+  wire \INFERRED_GEN.cnt_i_reg[4]_0 ;
   wire Interrupt0;
   wire [0:0]Q;
-  wire UARTLITE_RX_I_n_5;
+  wire UARTLITE_RX_I_n_4;
   wire [0:0]bus2ip_rdce;
   wire bus2ip_reset;
   wire clr_Status;
@@ -3077,10 +3078,10 @@ module system_axi_uartlite_0_0_uartlite_core
        (.Bus_RNW_reg(Bus_RNW_reg),
         .Bus_RNW_reg_reg(Bus_RNW_reg_reg),
         .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
-        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
-        .\INFERRED_GEN.cnt_i_reg[4] (Q),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ),
+        .\INFERRED_GEN.cnt_i_reg[4] (\INFERRED_GEN.cnt_i_reg[2] ),
         .Interrupt0(Interrupt0),
-        .Q(FIFO_Full_reg),
+        .Q(Q),
         .SR(bus2ip_reset),
         .clr_Status(clr_Status),
         .en_16x_Baud(en_16x_Baud),
@@ -3094,13 +3095,13 @@ module system_axi_uartlite_0_0_uartlite_core
         .status_reg(status_reg),
         .status_reg_reg0(status_reg_reg0),
         .\status_reg_reg[2] (rx_Buffer_Full),
-        .\status_reg_reg[2]_0 (UARTLITE_RX_I_n_5),
+        .\status_reg_reg[2]_0 (UARTLITE_RX_I_n_4),
         .tx_Buffer_Empty_Pre(tx_Buffer_Empty_Pre));
   system_axi_uartlite_0_0_uartlite_tx UARTLITE_TX_I
        (.Bus_RNW_reg(Bus_RNW_reg),
         .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
         .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ),
-        .Q(Q),
+        .Q(\INFERRED_GEN.cnt_i_reg[2] ),
         .SR(bus2ip_reset),
         .en_16x_Baud(en_16x_Baud),
         .fifo_wr(fifo_wr),
@@ -3137,7 +3138,7 @@ module system_axi_uartlite_0_0_uartlite_core
   FDRE rx_Data_Present_Pre_reg
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ),
+        .D(\INFERRED_GEN.cnt_i_reg[4]_0 ),
         .Q(rx_Data_Present_Pre),
         .R(1'b0));
   FDRE #(
@@ -3153,7 +3154,7 @@ module system_axi_uartlite_0_0_uartlite_core
     \status_reg_reg[2] 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(UARTLITE_RX_I_n_5),
+        .D(UARTLITE_RX_I_n_4),
         .Q(status_reg[0]),
         .R(1'b0));
   FDRE tx_Buffer_Empty_Pre_reg
@@ -3164,19 +3165,20 @@ module system_axi_uartlite_0_0_uartlite_core
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "uartlite_rx" *) 
 module system_axi_uartlite_0_0_uartlite_rx
    (\status_reg_reg[2] ,
     SR,
     status_reg_reg0,
     Q,
-    Interrupt0,
     \status_reg_reg[2]_0 ,
+    Interrupt0,
     out,
     s_axi_aclk,
     en_16x_Baud,
     s_axi_aresetn,
-    clr_Status,
     status_reg,
+    clr_Status,
     reset_RX_FIFO_reg,
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ,
     Bus_RNW_reg,
@@ -3191,14 +3193,14 @@ module system_axi_uartlite_0_0_uartlite_rx
   output [0:0]SR;
   output status_reg_reg0;
   output [0:0]Q;
-  output Interrupt0;
   output \status_reg_reg[2]_0 ;
+  output Interrupt0;
   output [7:0]out;
   input s_axi_aclk;
   input en_16x_Baud;
   input s_axi_aresetn;
-  input clr_Status;
   input [1:0]status_reg;
+  input clr_Status;
   input reset_RX_FIFO_reg;
   input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
   input Bus_RNW_reg;
@@ -3495,6 +3497,7 @@ module system_axi_uartlite_0_0_uartlite_rx
         .R(SR));
 endmodule
 
+(* ORIG_REF_NAME = "uartlite_tx" *) 
 module system_axi_uartlite_0_0_uartlite_tx
    (tx_Buffer_Full,
     tx,

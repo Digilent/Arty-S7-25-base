@@ -1,14 +1,14 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
--- Date        : Mon Jul 24 14:27:22 2017
--- Host        : WK73 running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode funcsim -rename_top system_mdm_1_0 -prefix
---               system_mdm_1_0_ system_mdm_1_0_sim_netlist.vhdl
+-- Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
+-- Date        : Fri Dec  8 20:06:28 2017
+-- Host        : DESKTOP-9HMNAI5 running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim
+--               C:/sam_work/git/digilent/Arty-S7-25-base/src/bd/system/ip/system_mdm_1_0/system_mdm_1_0_sim_netlist.vhdl
 -- Design      : system_mdm_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
--- Device      : xc7s50csga324-1
+-- Device      : xc7s25csga324-1
 -- --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -41,6 +41,8 @@ entity system_mdm_1_0_MB_BSCANE2 is
     Dbg_TDO_0 : in STD_LOGIC;
     \Use_Serial_Unified_Completion.sample_1_reg[15]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_MB_BSCANE2 : entity is "MB_BSCANE2";
 end system_mdm_1_0_MB_BSCANE2;
 
 architecture STRUCTURE of system_mdm_1_0_MB_BSCANE2 is
@@ -167,6 +169,8 @@ entity system_mdm_1_0_MB_BUFG is
     Dbg_Clk_31 : out STD_LOGIC;
     drck_i : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_MB_BUFG : entity is "MB_BUFG";
 end system_mdm_1_0_MB_BUFG;
 
 architecture STRUCTURE of system_mdm_1_0_MB_BUFG is
@@ -237,6 +241,8 @@ entity system_mdm_1_0_MB_FDC_1 is
     Debug_SYS_Rst : in STD_LOGIC;
     Ext_NM_BRK : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_MB_FDC_1 : entity is "MB_FDC_1";
 end system_mdm_1_0_MB_FDC_1;
 
 architecture STRUCTURE of system_mdm_1_0_MB_FDC_1 is
@@ -849,6 +855,8 @@ entity system_mdm_1_0_MB_FDRE_1 is
     \Use_BSCAN.command_reg[0]\ : in STD_LOGIC;
     \Use_BSCAN.PORT_Selector_reg[0]_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_MB_FDRE_1 : entity is "MB_FDRE_1";
 end system_mdm_1_0_MB_FDRE_1;
 
 architecture STRUCTURE of system_mdm_1_0_MB_FDRE_1 is
@@ -905,6 +913,8 @@ entity system_mdm_1_0_MB_SRL16E is
     \Use_Serial_Unified_Completion.completion_status_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     config_TDO_2 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_MB_SRL16E : entity is "MB_SRL16E";
 end system_mdm_1_0_MB_SRL16E;
 
 architecture STRUCTURE of system_mdm_1_0_MB_SRL16E is
@@ -1143,6 +1153,8 @@ entity system_mdm_1_0_JTAG_CONTROL is
     \Use_Serial_Unified_Completion.count_reg[5]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \shift_Count_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_JTAG_CONTROL : entity is "JTAG_CONTROL";
 end system_mdm_1_0_JTAG_CONTROL;
 
 architecture STRUCTURE of system_mdm_1_0_JTAG_CONTROL is
@@ -2673,6 +2685,8 @@ entity system_mdm_1_0_MDM_Core is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     \Use_BSCAN.command_reg[5]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_MDM_Core : entity is "MDM_Core";
 end system_mdm_1_0_MDM_Core;
 
 architecture STRUCTURE of system_mdm_1_0_MDM_Core is
@@ -4769,6 +4783,8 @@ entity system_mdm_1_0_MDM is
     bscan_ext_sel : in STD_LOGIC;
     bscan_ext_drck : in STD_LOGIC;
     bscan_ext_tdo : out STD_LOGIC;
+    bscan_ext_tck : in STD_LOGIC;
+    bscan_ext_bscanid_en : in STD_LOGIC;
     Ext_JTAG_DRCK : out STD_LOGIC;
     Ext_JTAG_RESET : out STD_LOGIC;
     Ext_JTAG_SEL : out STD_LOGIC;
@@ -4780,6 +4796,8 @@ entity system_mdm_1_0_MDM is
   );
   attribute C_AVOID_PRIMITIVES : integer;
   attribute C_AVOID_PRIMITIVES of system_mdm_1_0_MDM : entity is 0;
+  attribute C_BSCANID : integer;
+  attribute C_BSCANID of system_mdm_1_0_MDM : entity is 76547328;
   attribute C_DATA_SIZE : integer;
   attribute C_DATA_SIZE of system_mdm_1_0_MDM : entity is 32;
   attribute C_DBG_MEM_ACCESS : integer;
@@ -4830,6 +4848,8 @@ entity system_mdm_1_0_MDM is
   attribute C_USE_CROSS_TRIGGER of system_mdm_1_0_MDM : entity is 0;
   attribute C_USE_UART : integer;
   attribute C_USE_UART of system_mdm_1_0_MDM : entity is 0;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_mdm_1_0_MDM : entity is "MDM";
 end system_mdm_1_0_MDM;
 
 architecture STRUCTURE of system_mdm_1_0_MDM is
@@ -10580,7 +10600,7 @@ entity system_mdm_1_0 is
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_mdm_1_0 : entity is "yes";
   attribute x_core_info : string;
-  attribute x_core_info of system_mdm_1_0 : entity is "MDM,Vivado 2017.2";
+  attribute x_core_info of system_mdm_1_0 : entity is "MDM,Vivado 2017.3";
 end system_mdm_1_0;
 
 architecture STRUCTURE of system_mdm_1_0 is
@@ -11469,6 +11489,8 @@ architecture STRUCTURE of system_mdm_1_0 is
   signal NLW_U0_TRACE_DATA_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute C_AVOID_PRIMITIVES : integer;
   attribute C_AVOID_PRIMITIVES of U0 : label is 0;
+  attribute C_BSCANID : integer;
+  attribute C_BSCANID of U0 : label is 76547328;
   attribute C_DATA_SIZE : integer;
   attribute C_DATA_SIZE of U0 : label is 32;
   attribute C_DBG_MEM_ACCESS : integer;
@@ -11519,6 +11541,19 @@ architecture STRUCTURE of system_mdm_1_0 is
   attribute C_USE_CROSS_TRIGGER of U0 : label is 0;
   attribute C_USE_UART : integer;
   attribute C_USE_UART of U0 : label is 0;
+  attribute x_interface_info : string;
+  attribute x_interface_info of Dbg_Capture_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 CAPTURE";
+  attribute x_interface_info of Dbg_Clk_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 CLK";
+  attribute x_interface_info of Dbg_Disable_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 DISABLE";
+  attribute x_interface_info of Dbg_Rst_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 RST";
+  attribute x_interface_info of Dbg_Shift_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 SHIFT";
+  attribute x_interface_info of Dbg_TDI_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDI";
+  attribute x_interface_info of Dbg_TDO_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDO";
+  attribute x_interface_info of Dbg_Update_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 UPDATE";
+  attribute x_interface_info of Debug_SYS_Rst : signal is "xilinx.com:signal:reset:1.0 RST.Debug_SYS_Rst RST";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of Debug_SYS_Rst : signal is "XIL_INTERFACENAME RST.Debug_SYS_Rst, POLARITY ACTIVE_HIGH";
+  attribute x_interface_info of Dbg_Reg_En_0 : signal is "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 REG_EN";
 begin
 U0: entity work.system_mdm_1_0_MDM
      port map (
@@ -13029,11 +13064,13 @@ U0: entity work.system_mdm_1_0_MDM
       Trig_Out_1 => NLW_U0_Trig_Out_1_UNCONNECTED,
       Trig_Out_2 => NLW_U0_Trig_Out_2_UNCONNECTED,
       Trig_Out_3 => NLW_U0_Trig_Out_3_UNCONNECTED,
+      bscan_ext_bscanid_en => '0',
       bscan_ext_capture => '0',
       bscan_ext_drck => '0',
       bscan_ext_reset => '0',
       bscan_ext_sel => '0',
       bscan_ext_shift => '0',
+      bscan_ext_tck => '0',
       bscan_ext_tdi => '0',
       bscan_ext_tdo => NLW_U0_bscan_ext_tdo_UNCONNECTED,
       bscan_ext_update => '0'
